@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block head_title %}{% endblock %} | USS UŚ</title>
+    <meta name="description"content="{% block head_description  %} {% endblock %}"/>
+    <meta name="keywords" content="Sieć Sejsmologiczna, wstrząs, trzęsienie ziemi"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge.chrome=1"/>
+    <meta name="author" content="Robert Saternus">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Pragati+Narrow:700,400&subset=latin,latin-ext' rel='stylesheet'
+          type='text/css'>
+    <!--<link rel="shortcut icon" href="img/favicon.ico" type="image/icon">-->
+
+    {% load static %}
+
+    {% block stylesheets  %}
+        <link rel="stylesheet" type="text/css" href="{% static 'pages/css/html5reset-1.6.1.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static 'pages/css/bootstrap.min.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static 'pages/css/font-awesome.min.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static 'pages/css/style_main.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static 'pages/css/media-queries.css' %}" >
+    {% endblock %}
+
+
+
+
+</head>
+
+<body id="{%block bodyid%}{%endblock%}">
+
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.7&appId=603470526483998";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!--HEADER -->
+<header>
+    <!--STICKY BAR-->
+    <div id="header-top">
+        <div class="burger"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i>MENU</div>
+        <div class="traggle-menu">
+            <i class="fa fa-times-circle close" aria-hidden="true"></i>
+
+            <div class="logo">
+                <h1><a href="#">USS UŚ<br/></a></h1>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fa fa-book" aria-hidden="true"></i>O PROJEKCIE</a></li>
+                    <li><a href="#"><i class="fa fa-database" aria-hidden="true"></i>KATALOG LOKALNY</a></li>
+                    <li><a href="#"><i class="fa fa-globe" aria-hidden="true"></i>KATALOG GLOBALNY</a></li>
+                    <li><a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i>AKTUALNOŚCI</a></li>
+                    <li><a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i>FAQ</a></li>
+                    <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>KONTAKT</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="icons-header">
+            <ul>
+                <li><a href="#" data-toggle="modal" data-target="#search-modal"><i class="fa fa-search"
+                                                                                   aria-hidden="true"></i></a></li>
+                <li><a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-user"
+                                                                                  aria-hidden="true"></i></a></li>
+                <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end sticky bar-->
+
+    <!-- Modal with member login -->
+    <div id="login-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">ZALOGUJ SIĘ NA TWOJE KONTO</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-sm-8">
+
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-xs-3 control-label">Email</label>
+                                    <div class="col-xs-9">
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword" class="col-xs-3 control-label">Hasło</label>
+                                    <div class="col-xs-9">
+                                        <input type="password" class="form-control" id="inputPassword"
+                                               placeholder="Hasło">
+                                        <p class="small"><a href="#">Nie pamiętam hasła</a></p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-offset-1 col-xs-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Zapamiętaj mnie
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-offset-1 col-xs-10">
+                                        <button type="submit" class="btn btn-success btn-lg">Zaloguj</button>
+                                    </div>
+                                </div>
+                                <p class="bad-credential">Niepoprawny login lub hasło</p>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="separator">
+                        <div class="mask"></div>
+                    </div>
+
+                    <h6>Nie masz jeszcze konta na stronie?</h6>
+                    <a class="button" href="#"><span>ZAŁÓŻ DARMOWE KONTO</span></a>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal with searching form -->
+    <div id="search-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">SZUKAJ NA STRONIE</h3>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label class="sr-only" for="search-input">Amount (in dollars)</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
+                                <input type="text" class="form-control" id="search-input"
+                                       placeholder="Szukana fraza...">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg">Szukaj</button>
+                    </form>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block image_top %}
+        <!--Top Imagine for static pages-->
+        <div class="container-fluid nopadding">
+            <div class="row nomargin">
+                <div class="static-top">
+                    <img class="img-background" src="img/slajdy/spodek.jpg" alt="o-projekcie">
+
+                    <h1>O PROJEKCIE</h1>
+
+                </div>
+            </div>
+        </div>
+        <!--END Object top info-->
+    {% endblock%}
+
+</header>
+
+
+
+{% block page_content %} {% endblock %}
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 myself">
+                <p><strong>Uczelniana Sieć Sejsmologiczna Universytetu Śląskiego</strong> to witryna, która umożliwia
+                    gromadzenie oraz analizowanie zjawisk sejsmologicznych pochodzących z działalności górniczej na
+                    terenie Górnego Śląska. Jesteś mieszkańcem Śląska? Tutaj możesz sprawdzić, gdzie zatrzęsła się
+                    ziemia w Twojej okolicy.
+            </div>
+
+            <div class="col-sm-4 nav-footer">
+                <div class="col-md-4 hidden-xs hidden-sm ico"><i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                </div>
+                <div class="col-md-8 col-sm-12 navi">
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">JAK TO DZIAŁA</a></li>
+                        <li><a href="#">O AUTORACH</a></li>
+                        <li><a href="#">KONTAKT</a></li>
+                        <li><a href="#">REGULAMIN</a></li>
+                        <!--<li><a href="#">POLITYKA PRYWATNOŚCI</a></li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">&copy; Wykonanie i prowadzenie strony: <a href="http://robertsaternus.pl/">Robert
+        Saternus</a></div>
+</footer>
+
+<!--SOCIAL MEDIA ICONS-->
+<div id="fb-widget">
+    <div class="fb-page" data-href="https://www.facebook.com/geofizyka.geologia.uni.slaski" data-tabs="timeline"
+         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/geofizyka.geologia.uni.slaski" class="fb-xfbml-parse-ignore"><a
+                href="https://www.facebook.com/geofizyka.geologia.uni.slaski">FreeLancelot</a></blockquote>
+    </div>
+    <img class="zakladka" src="{% static 'pages/img/facebook-icon.png' %}" alt="Rankingowiec facebook funpage"/>
+</div>
+
+
+{% block javascript  %}
+    <script>
+        var url = "{% static 'pages/grafika/event_map_mark.png' %}";
+    </script>
+
+
+    <script src="{% static 'pages/js/jquery-2.1.3.min.js' %}"></script>
+    <script src="{% static 'pages/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'pages/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'pages/js/script_main.js' %}"></script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJyihe6tbI9ubunBcZGaq1ZnCuSi5gdDg&callback=initMap">
+    </script>
+
+
+
+{% endblock %}
+
+</body>
+
+</html>

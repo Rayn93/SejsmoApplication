@@ -1,0 +1,67 @@
+[
+  {
+    "name": "id",
+    "title": "ID",
+    "breakpoints": "xs sm",
+    "type": "number",
+    "style": {
+      "width": 80,
+      "maxWidth": 80
+    }
+  },
+  {
+    "name": "date",
+    "title": "Data",
+    "type": "date",
+    "formatString": "DD-MM-YYYY"
+  },
+  {
+    "name": "time",
+    "title": "Czas",
+    "type": "date",
+    "sortable": false,
+    "formatString": "HH:mm",
+    "style": {
+      "width": 100,
+      "maxWidth": 100
+    }
+  },
+  {
+    "name": "magnitude",
+    "title": "Magnituda",
+    "type": "number",
+    "style": {
+      "width": 150,
+      "maxWidth": 150
+    }
+  },
+  {
+    "name": "city",
+    "title": "Miasto",
+    "breakpoints": "xs sm",
+    "style": {
+      "maxWidth": 200,
+      "overflow": "hidden",
+      "textOverflow": "ellipsis",
+      "wordBreak": "keep-all",
+      "whiteSpace": "nowrap"
+    }
+  },
+  {
+    "name": "geo",
+    "title": "Lokalizacja",
+    "sortable": false,
+    "breakpoints": "xs sm md"
+  },
+  {
+    "name": "mine",
+    "title": "Kopalnia",
+    "breakpoints": "xs sm md"
+  },
+  {
+    "name": "link",
+    "title": "Więcej",
+    "sortable": false,
+    "data-type": "html"
+  }
+]

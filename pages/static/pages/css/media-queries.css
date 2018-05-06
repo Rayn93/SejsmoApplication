@@ -1,0 +1,485 @@
+@media all and (max-width: 1400px) {
+
+    header .carousel-caption h1 {
+        font-size: 50px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    header .carousel-caption p {
+        font-size: 26px;
+    }
+
+    header .carousel-caption p br{
+        display: none;
+    }
+}
+
+
+@media all and (max-width: 1199px) {
+
+    #myCarousel .item {
+        height: 500px;
+    }
+
+    header .nav-category ul li a{
+        font-size: 16px;
+    }
+
+    header .carousel-caption h3 {
+        font-size: 65px;
+    }
+
+    header .carousel-caption p {
+        font-size: 25px;
+    }
+
+
+    footer .nav-footer .fa-question-circle-o {
+        font-size: 100px;
+        margin-top: 75px;
+    }
+
+    #fb-widget {
+        top: 130px;
+    }
+
+    #aboutProject h3 {
+        font-size: 47px;
+        margin-top: 0px;
+    }
+
+    #aboutProject p {
+        font-size: 20px;
+    }
+
+    a.button, input.button {
+        padding: 10px 20px;
+    }
+
+    #indexMap .mainHeader {
+        font-size: 41px;
+    }
+
+    #news .article h4 {
+        font-size: 25px;
+    }
+
+    #news .article p {
+        font-size: 18px;
+
+    }
+
+    #about #intro h4 {
+        font-size: 30px;
+        padding: 10px 0;
+        font-weight: bold;
+    }
+
+    #about #intro p {
+        font-size: 19px;
+        line-height: 22px;
+    }
+
+    #about #infoSqueres button.btn-lg{
+        font-size: 25px;
+    }
+
+    #about #stationList table {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #blogList #postList article h3 {
+        font-size: 25px;
+        margin-top: 0;
+        height: 50px;
+    }
+
+    #blogList #postList article p.dot {
+        height: 150px;
+    }
+
+    #staticPage article .simpleArticle{
+        width: 70%;
+    }
+
+
+}
+
+
+@media all and (max-width: 991px) {
+
+    header .carousel-indicators {
+        width: 100%;
+        left: 0;
+        right: 5%;
+        margin-left: 0;
+    }
+
+    header .nav-category ul li:nth-child(4),
+    header .nav-category ul li:nth-child(5),
+    header .nav-category ul li:nth-child(6){
+        display: none;
+    }
+
+    header .nav-category ul li {
+        width: 19%;
+    }
+
+    header .nav-category {
+        height: 72px;
+    }
+
+    header .carousel-caption h1 {
+        font-size: 45px;
+    }
+
+    header .carousel-caption p {
+        font-size: 23px;
+    }
+
+    footer .myself p {
+        line-height: 27px;
+        font-size: 20px;
+    }
+
+    #fb-widget {
+        top: 100px;
+    }
+
+    #aboutProject h3 {
+        font-size: 60px;
+    }
+
+    #aboutProject p {
+        font-size: 25px;
+    }
+
+    #indexMap .mainHeader,
+    #indexMap .lead{
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    #indexMap .lead{
+        font-size: 25px;
+    }
+
+    #indexMap a.button{
+        margin-bottom: 50px;
+    }
+
+    #indexMap #map{
+        height: 450px;
+    }
+
+    #globalEvents #map2{
+        height: 450px;
+    }
+
+    #intro .mainHeader{
+        font-size: 42px;
+    }
+
+    #about #intro p {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 22px;
+    }
+
+    #blogPost .static-top h1 {
+        font-size: 70px;
+        padding-left: 100px;
+        line-height: 60px;
+    }
+
+    #blogPost .static-top .infoBox {
+        margin-left: 100px;
+    }
+
+    #blogPost article, #staticPage article {
+        padding: 70px 0;
+    }
+
+    #blogPost article .simpleArticle,
+    #staticPage article .simpleArticle {
+        width: 70%;
+    }
+
+    #blogList #postList article h3,
+    #blogList #postList article p.dot{
+        height: auto;
+    }
+
+    #blogList #postList article{
+        height: auto;
+        padding-bottom: 55px !important;
+    }
+
+    #blogList #postList article.imgLeft img,
+    #blogList #postList article.imgRight img{
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    #blogList #postList article a.button {
+        position: absolute;
+        bottom: -65px;
+        right: 10px;
+    }
+
+    #staticPage .styled-input {
+        width: 100%;
+    }
+
+
+}
+
+@media all and (max-width: 767px) {
+
+    footer .myself p{
+        margin: 10px auto;
+    }
+
+    header .traggle-menu nav ul li {
+        height: 30px;
+        line-height: 35px;
+    }
+
+    .styled-input {
+        width:100%;
+    }
+
+    .submit-btn {
+        width:100%;
+        float: none;
+        text-align:center;
+    }
+
+    header .carousel-caption h1 {
+        font-size: 40px;
+    }
+
+    #indexMap .mainHeader,
+    #indexMap .lead{
+        width: 90%;
+    }
+
+    #aboutProject h3,
+    #aboutProject p,
+    #globalEvents .mainHeader,
+    #globalEvents .lead,
+    #news .mainHeader,
+    #news .lead{
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    #news .lead{
+        margin-bottom: 50px ;
+    }
+
+    #news .article{
+        width: 75%;
+        margin: 20px auto;
+    }
+
+    #news .article h4 {
+        font-size: 33px;
+    }
+
+    #news .article p {
+        font-size: 22px;
+    }
+
+    footer .navi ul li {
+        display: inline-block;
+        padding: 20px 8px;
+    }
+
+    #news .article p {
+        height: auto;
+    }
+
+    #single-event #event-table .row,
+    #single-station #event-table .row {
+        margin-top: -56px;
+    }
+
+    #blogPost .static-top h1 {
+        font-size: 60px;
+        padding-left: 60px;
+        line-height: 55px;
+    }
+
+    #blogPost .static-top .infoBox {
+        margin-left: 60px;
+    }
+
+    #blogPost article .simpleArticle,
+    #staticPage article .simpleArticle {
+        width: 80%;
+    }
+
+
+}
+
+@media all and (max-width: 650px) {
+
+    header .carousel-caption h1 {
+        font-size: 35px;
+    }
+
+    header .carousel-caption p {
+        font-size: 21px;
+    }
+
+
+    footer .myself p{
+        width: 100%;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+
+    #indexMap .mainHeader,
+    #indexMap .lead,
+    #aboutProject h3,
+    #aboutProject p,
+    #globalEvents .mainHeader,
+    #globalEvents .lead,
+    #news .mainHeader,
+    #news .lead{
+        width: 95%;
+    }
+
+    #news .article{
+        width: 90%;
+    }
+
+    footer .navi ul li a {
+        font-size: 20px;
+    }
+
+    footer .navi ul li {
+        padding: 20px 7px;
+    }
+
+
+}
+
+@media all and (max-width: 580px) {
+
+    header .nav-category ul li:nth-child(3),
+    header .nav-category ul li:nth-child(7){
+        display: none;
+    }
+
+    header .nav-category ul li {
+        width: 32%;
+    }
+
+    footer .navi ul li {
+        display: block;
+        padding: 5px;
+    }
+
+    .static-top h1 {
+        top: 110px;
+        font-size: 80px;
+    }
+
+    #single-event #event-table .row,
+    #single-station #event-table .row {
+        padding: 30px 2px 50px 2px;
+    }
+
+}
+
+@media all and (max-width: 500px) {
+    #about #infoSqueres button.btn-lg {
+        margin: 5px auto;
+    }
+
+    #single-event #event-table h2,
+    #single-station #event-table h2 {
+        font-size: 40px;
+    }
+
+    #blogPost .static-top h1 {
+        font-size: 50px;
+        padding-left: 25px;
+        line-height: 50px;
+    }
+
+    #blogPost .static-top .infoBox {
+        margin-left: 25px;
+    }
+
+    #blogPost article .simpleArticle,
+    #staticPage article .simpleArticle {
+        width: 90%;
+    }
+}
+
+@media all and (max-width: 460px) {
+
+
+    header .carousel-caption h1 {
+        font-size: 33px;
+        letter-spacing: 1px;
+        margin-top: -50px;
+    }
+
+    header .burger {
+        margin-left: 10px;
+        margin-top: 17px;
+    }
+
+    header .icons-header ul li {
+        margin-right: 22px;
+    }
+
+    #indexMap .mainHeader,
+    #indexMap .lead,
+    #aboutProject h3,
+    #aboutProject p,
+    #globalEvents .mainHeader,
+    #globalEvents .lead,
+    #news .mainHeader,
+    #news .lead{
+        width: 98%;
+    }
+
+    #news .article{
+        width: 95%;
+    }
+
+    #globalEvents .mainHeader{
+        font-size: 40px;
+        padding-top: 0;
+    }
+
+    .static-top h1 {
+        top: 120px;
+        font-size: 60px;
+    }
+
+    #intro .mainHeader {
+        font-size: 35px;
+    }
+
+    #about #intro p {
+        width: 90%;
+    }
+
+    #single-event #event-table table tr,
+    #single-station #event-table table tr {
+        font-size: 19px;
+    }
+
+}
+

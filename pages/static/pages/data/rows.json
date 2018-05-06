@@ -1,0 +1,322 @@
+[
+  {
+    "id": 1,
+    "date": 1267237530209,
+    "time": 1267242130209,
+    "magnitude": 3.2,
+    "city": "Bytom",
+    "geo": "50.366N 18.874E",
+    "mine": "Bobrek-Centrum",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 2,
+    "date": 1267237530209,
+    "time": 1243237530209,
+    "magnitude": 3.6,
+    "city": "Mysłowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Mysłowice-Wesoła",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 3,
+    "date": 1267237530209,
+    "time": 1267237530209,
+    "magnitude": 2.2,
+    "city": "Katowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Wieczorek",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 4,
+    "date": 1267237530209,
+    "time": 1654337530209,
+    "magnitude": 4.2,
+    "city": "Jaworzno",
+    "geo": "50.366N 18.874E",
+    "mine": "Piłsudski",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 1,
+    "date": 1267237530209,
+    "time": 1267242130209,
+    "magnitude": 3.2,
+    "city": "Bytom",
+    "geo": "50.366N 18.874E",
+    "mine": "Bobrek-Centrum",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 2,
+    "date": 1267237530209,
+    "time": 1243237530209,
+    "magnitude": 3.6,
+    "city": "Mysłowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Mysłowice-Wesoła",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 3,
+    "date": 1267237530209,
+    "time": 1267237530209,
+    "magnitude": 2.2,
+    "city": "Katowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Wieczorek",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 4,
+    "date": 1267237530209,
+    "time": 1654337530209,
+    "magnitude": 4.2,
+    "city": "Jaworzno",
+    "geo": "50.366N 18.874E",
+    "mine": "Piłsudski",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 1,
+    "date": 1267237530209,
+    "time": 1267242130209,
+    "magnitude": 3.2,
+    "city": "Bytom",
+    "geo": "50.366N 18.874E",
+    "mine": "Bobrek-Centrum",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 2,
+    "date": 1267237530209,
+    "time": 1243237530209,
+    "magnitude": 3.6,
+    "city": "Mysłowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Mysłowice-Wesoła",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 3,
+    "date": 1267237530209,
+    "time": 1267237530209,
+    "magnitude": 2.2,
+    "city": "Katowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Wieczorek",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 4,
+    "date": 1267237530209,
+    "time": 1654337530209,
+    "magnitude": 4.2,
+    "city": "Jaworzno",
+    "geo": "50.366N 18.874E",
+    "mine": "Piłsudski",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 1,
+    "date": 1267237530209,
+    "time": 1267242130209,
+    "magnitude": 3.2,
+    "city": "Bytom",
+    "geo": "50.366N 18.874E",
+    "mine": "Bobrek-Centrum",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 2,
+    "date": 1267237530209,
+    "time": 1243237530209,
+    "magnitude": 3.6,
+    "city": "Mysłowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Mysłowice-Wesoła",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 3,
+    "date": 1267237530209,
+    "time": 1267237530209,
+    "magnitude": 2.2,
+    "city": "Katowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Wieczorek",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 4,
+    "date": 1267237530209,
+    "time": 1654337530209,
+    "magnitude": 4.2,
+    "city": "Jaworzno",
+    "geo": "50.366N 18.874E",
+    "mine": "Piłsudski",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 1,
+    "date": 1267237530209,
+    "time": 1267242130209,
+    "magnitude": 3.2,
+    "city": "Bytom",
+    "geo": "50.366N 18.874E",
+    "mine": "Bobrek-Centrum",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 2,
+    "date": 1267237530209,
+    "time": 1243237530209,
+    "magnitude": 3.6,
+    "city": "Mysłowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Mysłowice-Wesoła",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 3,
+    "date": 1267237530209,
+    "time": 1267237530209,
+    "magnitude": 2.2,
+    "city": "Katowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Wieczorek",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 4,
+    "date": 1267237530209,
+    "time": 1654337530209,
+    "magnitude": 4.2,
+    "city": "Jaworzno",
+    "geo": "50.366N 18.874E",
+    "mine": "Piłsudski",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 1,
+    "date": 1267237530209,
+    "time": 1267242130209,
+    "magnitude": 3.2,
+    "city": "Bytom",
+    "geo": "50.366N 18.874E",
+    "mine": "Bobrek-Centrum",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 2,
+    "date": 1267237530209,
+    "time": 1243237530209,
+    "magnitude": 3.6,
+    "city": "Mysłowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Mysłowice-Wesoła",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 3,
+    "date": 1267237530209,
+    "time": 1267237530209,
+    "magnitude": 2.2,
+    "city": "Katowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Wieczorek",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 4,
+    "date": 1267237530209,
+    "time": 1654337530209,
+    "magnitude": 4.2,
+    "city": "Jaworzno",
+    "geo": "50.366N 18.874E",
+    "mine": "Piłsudski",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 1,
+    "date": 1267237530209,
+    "time": 1267242130209,
+    "magnitude": 3.2,
+    "city": "Bytom",
+    "geo": "50.366N 18.874E",
+    "mine": "Bobrek-Centrum",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 2,
+    "date": 1267237530209,
+    "time": 1243237530209,
+    "magnitude": 3.6,
+    "city": "Mysłowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Mysłowice-Wesoła",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 3,
+    "date": 1267237530209,
+    "time": 1267237530209,
+    "magnitude": 2.2,
+    "city": "Katowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Wieczorek",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 4,
+    "date": 1267237530209,
+    "time": 1654337530209,
+    "magnitude": 4.2,
+    "city": "Jaworzno",
+    "geo": "50.366N 18.874E",
+    "mine": "Piłsudski",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 1,
+    "date": 1267237530209,
+    "time": 1267242130209,
+    "magnitude": 3.2,
+    "city": "Bytom",
+    "geo": "50.366N 18.874E",
+    "mine": "Bobrek-Centrum",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 2,
+    "date": 1267237530209,
+    "time": 1243237530209,
+    "magnitude": 3.6,
+    "city": "Mysłowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Mysłowice-Wesoła",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 3,
+    "date": 1267237530209,
+    "time": 1267237530209,
+    "magnitude": 2.2,
+    "city": "Katowice",
+    "geo": "50.366N 18.874E",
+    "mine": "Wieczorek",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  },
+  {
+    "id": 4,
+    "date": 1267237530209,
+    "time": 1654337530209,
+    "magnitude": 4.2,
+    "city": "Jaworzno",
+    "geo": "50.366N 18.874E",
+    "mine": "Piłsudski",
+    "link": "<a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a>"
+  }
+]
