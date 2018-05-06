@@ -5,7 +5,8 @@ GENERAL STYLE
 body{
 	/*background: url("../img/low_contrast_linen.png");*/
     background: #fff;
-	font-family: 'Pragati Narrow', sans-serif;
+	/*font-family: 'Pragati Narrow', sans-serif;*/
+    font-family: 'Arial', sans-serif;
 	font-size:16px;
 	margin: 0 auto;
     text-align:center;

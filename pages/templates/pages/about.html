@@ -1,0 +1,342 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head_title %}O Projekcie{% endblock %}
+
+{% block head_description %}Strona sieci sejsmologicznej UŚ ma za zadanie dostarczenie informacji o wstrząsach sejsmicznych zarejestrowanych przez USS UŚ na Grónym Śląsku{% endblock %}
+
+{% block bodyid %}about{% endblock %}
+
+{% block image_top %}
+<!--Top Imagine for static pages-->
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="static-top">
+                <img class="img-background" src="{% static 'pages/img/slajdy/spodek.jpg' %}" alt="o-projekcie">
+
+                <h1>O PROJEKCIE</h1>
+
+            </div>
+        </div>
+    </div>
+    <!--END Object top info-->
+{% endblock %}
+
+
+
+
+{% block page_content %}
+
+   <main>
+
+    <section id="intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="mainHeader">Cele powstania <br /> Uniwersyteckiej Sieci Sejsmologicznej Uniwersytetu Śląskiego</h3>
+                </div>
+
+
+                <div class="col-md-4">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    <h4>Monitoring sejsmiczności</h4>
+                    <p>Obserwacja zdarzeń sejsmicznych na terenie Górnośląskiego Okręgu Przemysłowego jest piorytetem powstania sieci. </p>
+                </div>
+
+                <div class="col-md-4">
+                    <i class="fa fa-database" aria-hidden="true"></i>
+                    <h4>Zbieranie danych</h4>
+                    <p>USS UŚ to również tworzenie bazy wstrząsów mających miejsce na Górnym Śląsku.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                    <h4>Analizy i przetwarzanie</h4>
+                    <p>Dodatkowo staramy się rozwijać nasz autorski system do automatycznego przetwarzania danych z sieci co ułatwia i przyśpiesza analizję danych sejsmologicznych.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="networkMap">
+        <div class="container-fluid nopadding">
+            <div class="row nomargin nopadding">
+                <div id="stationMap"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="infoSqueres">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-xs-6">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModa4">
+                        Uniwersytet Śląski <br /> Wydział Nauk o Ziemi
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModa4" tabindex="-1" role="dialog" aria-labelledby="myModalLabe4">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabe4">Uniwersytet Śląski - Wydział Nauk o Ziemi</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Zamknij</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        Historia powstania sieci sejsmologicznej
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Historia powstania sieci sejsmologicznej</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Zamknij</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModa2">
+                        Koordynatorzy projektu
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabe2">Koordynatorzy projektu</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Zamknij</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModa3">
+                        Aparatura
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModa3" tabindex="-1" role="dialog" aria-labelledby="myModalLabe3">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabe3">Aparatura</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Zamknij</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="separator">
+        <div class="mask"></div>
+    </div>
+
+    <section id="stationList">
+        <div class="container">
+            <div class="row">
+
+                <h3 class="mainHeader">Lista Stacji</h3>
+
+                <div class="table-responsive">
+
+                    <!--Table-->
+                    <table class="table table-striped table-bordered">
+
+                        <!--Table head-->
+                        <thead>
+                        <tr>
+                            <th>Miejscowość</th>
+                            <th>Skrót nazwy</th>
+                            <th>Data instalacji</th>
+                            <th>Zobacz więcej</th>
+                        </tr>
+                        </thead>
+                        <!--Table head-->
+
+                        <!--Table body-->
+                        <tbody>
+                        <tr>
+                            <th>Sosnowiec</th>
+                            <td>WNZ</td>
+                            <td>20 Maj 2010</td>
+                            <td><a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a></td>
+                        </tr>
+                        <tr>
+                            <th>Chorzów</th>
+                            <td>PLM</td>
+                            <td>20 Maj 2012</td>
+                            <td><a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a></td>
+                        </tr>
+                        <tr>
+                            <th>Mysłowice</th>
+                            <td>MYS</td>
+                            <td>20 Maj 2016</td>
+                            <td><a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a></td>
+                        </tr>
+                        <tr>
+                            <th>Łaziska Górne</th>
+                            <td>LZG</td>
+                            <td>20 Maj 2017</td>
+                            <td><a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a></td>
+                        </tr>
+                        </tbody><!--Table body-->
+
+                    </table><!--Table-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}
+
+{% block javascript  %}
+    <script>
+        var url_event = "{% static 'pages/grafika/event_map_mark.png' %}";
+        var url_station = "{% static 'pages/grafika/station_map_mark.png' %}";
+    </script>
+
+
+    <script src="{% static 'pages/js/jquery-2.1.3.min.js' %}"></script>
+    <script src="{% static 'pages/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'pages/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'pages/js/script_main.js' %}"></script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJyihe6tbI9ubunBcZGaq1ZnCuSi5gdDg&callback=initMap">
+    </script>
+
+    <script>
+        function initMap() {
+
+            var locationStations = [
+                ['Sosnowie [SOS] ',  50.298968, 19.133768, 1 ],
+                ['Mysłowice [MYS]',  50.209314, 19.118793, 2],
+                ['Łaziska Górne [LAG]', 50.149592, 18.871817, 3],
+                ['Chorzów [CHR]',  50.290576, 18.992003, 4]
+            ];
+
+
+            var stationdMap = new google.maps.Map(document.getElementById('stationMap'), {
+                zoom: 11,
+                center: silesiaCenter,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: mapStyle
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+            var markers = [];
+
+            //Markers Stations Loop
+            for (i = 0; i < locationStations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locationStations[i][1], locationStations[i][2]),
+                    map: stationdMap,
+                    icon: url_station
+                });
+
+                markers.push(marker);
+
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(
+                                '<div class="markerDescription">'+
+                                '<strong>Nazwa stacji: <br /> </strong>'+locationStations[i][0] + '<br />'+
+                                '<a class="text-right" href="#">Więcej</a>'+
+                                '</div>'
+
+                        );
+
+
+                        infowindow.open(stationdMap, marker);
+                    }
+                })(marker, i));
+            }
+
+        }
+
+    </script>
+
+
+
+{% endblock %}
+
+

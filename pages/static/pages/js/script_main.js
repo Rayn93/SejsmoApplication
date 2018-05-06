@@ -197,10 +197,10 @@ var worldCenter = {lat: 0.191, lng: 22.830};
 
 var markEvent = {
     // url: "grafika/event_map_mark.png", // url
-    url: url
+    url: url_event
 };
 var markStation = {
-    url: url
+    url: url_station
 };
 
 function initMap() {
