@@ -335,13 +335,18 @@ header .traggle-menu nav ul{
 
 header .traggle-menu nav ul li{
     text-align: left;
-    height: 37px;
-    line-height: 40px;
+    height: 35px;
+    line-height: 35px;
 }
 
 header .traggle-menu nav ul li a{
-    font-size: 23px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+header .traggle-menu nav ul li a:hover{
+    color: #00a651;
 }
 
 header .traggle-menu nav ul li a i{
@@ -349,9 +354,8 @@ header .traggle-menu nav ul li a i{
 }
 
 header .traggle-menu nav ul li.active a{
-    color: #fff;
+    color: #00a651;
 }
-
 
 
 header .traggle-menu .close:hover{
@@ -636,8 +640,9 @@ MAIN SECTION HOME PAGE
 }
 
 #aboutProject p{
-    font-size: 25px;
+    font-size: 20px;
     text-align: justify;
+    margin: 15px 0;
 }
 
 #indexMap{
@@ -822,10 +827,19 @@ table.footable td{
     margin-top: 40px;
 }
 
+#about #intro .parent{
+    height: 100px;
+    display: table;
+    width: 100%;
+}
+
 #about #intro h4{
     font-size: 35px;
     padding: 10px 0;
     font-weight: bold;
+    display: table-cell;
+    vertical-align: middle;
+
 }
 
 #about #intro p{
@@ -847,7 +861,7 @@ table.footable td{
     height: 128px;
     margin: 20px auto;
     white-space: normal;
-    font-size: 30px;
+    font-size: 23px;
     line-height: 28px;
     background: #50a853;
     border: 1px solid;
@@ -877,6 +891,10 @@ table.footable td{
 
 #about #infoSqueres .modal-footer{
     border-top: 1px solid #ccc;
+}
+
+#about #stationList .mainHeader{
+    padding-bottom: 50px;
 }
 
 #about #stationList{

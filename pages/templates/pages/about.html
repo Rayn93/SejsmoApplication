@@ -40,19 +40,25 @@
 
                 <div class="col-md-4">
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
-                    <h4>Monitoring sejsmiczności</h4>
+                    <div class="parent">
+                        <h4>Monitoring sejsmiczności</h4>
+                    </div>
                     <p>Obserwacja zdarzeń sejsmicznych na terenie Górnośląskiego Okręgu Przemysłowego jest piorytetem powstania sieci. </p>
                 </div>
 
                 <div class="col-md-4">
                     <i class="fa fa-database" aria-hidden="true"></i>
-                    <h4>Zbieranie danych</h4>
+                    <div class="parent">
+                        <h4>Zbieranie danych</h4>
+                    </div>
                     <p>USS UŚ to również tworzenie bazy wstrząsów mających miejsce na Górnym Śląsku.</p>
                 </div>
 
                 <div class="col-md-4">
                     <i class="fa fa-pie-chart" aria-hidden="true"></i>
-                    <h4>Analizy i przetwarzanie</h4>
+                    <div class="parent">
+                        <h4>Analizy i przetwarzanie</h4>
+                    </div>
                     <p>Dodatkowo staramy się rozwijać nasz autorski system do automatycznego przetwarzania danych z sieci co ułatwia i przyśpiesza analizję danych sejsmologicznych.</p>
                 </div>
 
@@ -267,22 +273,16 @@
 {% endblock %}
 
 {% block javascript  %}
-    <script>
-        var url_event = "{% static 'pages/grafika/event_map_mark.png' %}";
-        var url_station = "{% static 'pages/grafika/station_map_mark.png' %}";
-    </script>
-
-
-    <script src="{% static 'pages/js/jquery-2.1.3.min.js' %}"></script>
-    <script src="{% static 'pages/js/jquery-ui.min.js' %}"></script>
-    <script src="{% static 'pages/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'pages/js/script_main.js' %}"></script>
 
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJyihe6tbI9ubunBcZGaq1ZnCuSi5gdDg&callback=initMap">
     </script>
 
     <script>
+
+
+
+
         function initMap() {
 
             var locationStations = [

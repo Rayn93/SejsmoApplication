@@ -51,7 +51,7 @@
                         <a href="#"> dużych trzęsień Ziemii</a>, dostarczamy narzędzi do przetwarzania danych
                         sejsmologicznych. </p>
 
-                    <a class="button" href="#aboutProject"><span>DOWIEDZ SIĘ WIĘCEJ</span></a>
+                    <a class="button mt20" href="#aboutProject"><span>DOWIEDZ SIĘ WIĘCEJ</span></a>
                 </div>
 
                 <div class="col-md-6 hidden-xs hidden-sm">
@@ -121,7 +121,7 @@
                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
                         deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
                         provident, similique sunt in culpa qui </p>
-                    <a class="button" href="#aboutProject"><span>Czytaj więcej</span></a>
+                    <a class="button mt20" href="#aboutProject"><span>Czytaj więcej</span></a>
                 </div>
 
                 <div class="col-md-4 col-sm-6 article">
@@ -130,7 +130,7 @@
                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
                         deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
                         provident, similique sunt in culpa qui </p>
-                    <a class="button" href="#aboutProject"><span>Czytaj więcej</span></a>
+                    <a class="button mt20" href="#aboutProject"><span>Czytaj więcej</span></a>
                 </div>
 
                 <div class="col-md-4 hidden-xs hidden-sm article">
@@ -139,16 +139,27 @@
                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
                         deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
                         provident, similique sunt in culpa qui </p>
-                    <a class="button" href="#aboutProject"><span>Czytaj więcej</span></a>
+                    <a class="button mt20" href="#aboutProject"><span>Czytaj więcej</span></a>
                 </div>
 
             </div>
 
-            <a class="button mt20" href="#aboutProject"><span>ZOBACZ WIĘCEJ</span></a>
+            <a class="button mt20" href="#aboutProject"><span>ZOBACZ WSZYSTKIE ARTYKUŁY</span></a>
 
         </div>
     </section>
 
 </main>
+
+{% endblock %}
+
+{% block javascript  %}
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJyihe6tbI9ubunBcZGaq1ZnCuSi5gdDg&callback=initMap">
+    </script>
+
+    <script src="{% static 'pages/js/home-page.js' %}"></script>
+
 
 {% endblock %}
