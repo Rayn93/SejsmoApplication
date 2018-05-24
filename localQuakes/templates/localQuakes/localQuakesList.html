@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head_title %}Katalog Lokalny USS UŚ{% endblock %}
+
+{% block head_description %}Katalog z lokalnymi wstrząsami wokół Górnego Śląska. Strona sieci sejsmologicznej UŚ ma za zadanie dostarczenie informacji o wstrząsach sejsmicznych zarejestrowanych przez USS UŚ na Grónym Śląsku{% endblock %}
+
+{% block bodyid %}catalog{% endblock %}
+
+{% block image_top %}
+
+<!--Top Imagine for static pages-->
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="static-top">
+                <img class="img-background" src="{% static 'pages/img/slajdy/nikoszowiec.jpg' %}" alt="mapa-strony">
+
+                <h1>KATALOG LOKALNY</h1>
+
+            </div>
+        </div>
+    </div>
+    <!--END Object top info-->
+
+{% endblock %}
+
+{% block page_content %}
+
+<main>
+
+    <section id="catalog-table">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <table class="global-table table table-striped "
+                           data-paging="true"
+                           data-sorting="true"
+                           data-filtering="true"
+                           data-paging-count-format="{CP} z {TP}"
+                           data-paging-size="20"
+                           data-filter-placeholder="Szukaj">
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</main>
+
+{% endblock %}
+
+{% block javascript  %}
+
+    <script src="{% static 'pages/js/moment.min.js' %}"></script>
+    <script src="{% static 'pages/js/footable.min.js' %}"></script>
+
+    <script>
+        //Catalog data
+        $(function(){
+            $('.global-table').footable({
+                "columns": $.get('http://127.0.0.1:8000/static/pages/data/columns.json'),
+                "rows": $.get('http://127.0.0.1:8000/static/pages/data/rows.json')
+            });
+        });
+    </script>
+
+{% endblock %}
+

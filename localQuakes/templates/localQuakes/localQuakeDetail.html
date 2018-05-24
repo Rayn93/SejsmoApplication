@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head_title %}Zdarzenie sejsmiczne id-zdarzenia{% endblock %}
+
+{% block head_description %}Strona sieci sejsmologicznej UŚ ma za zadanie dostarczenie informacji o wstrząsach sejsmicznych zarejestrowanych przez USS UŚ na Grónym Śląsku{% endblock %}
+
+{% block bodyid %}single-event{% endblock %}
+
+{% block image_top %}
+
+<!--Top Imagine for static pages-->
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="static-top">
+                <div id="single-map"></div>
+            </div>
+        </div>
+    </div>
+    <!--END Object top info-->
+
+
+
+{% endblock %}
+
+{% block page_content %}
+
+<main>
+
+    <section id="event-table">
+        <div class="container">
+            <div class="row">
+
+                <h2>Wstrząs sejsmiczny o id: 12</h2>
+
+                <div class="col-md-6">
+
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td>Data</td>
+                                <td>27 maj 2017</td>
+                            </tr>
+                            <tr>
+                                <td>Czas zdarzenia</td>
+                                <td>12:15</td>
+                            </tr>
+                            <tr>
+                                <td>Maginituda Lokalna</td>
+                                <td>2.9</td>
+                            </tr>
+                            <tr>
+                                <td>Energia</td>
+                                <td>3x10<SUP>6</SUP> </td>
+                            </tr>
+                            <tr>
+                                <td>Lokalizacja</td>
+                                <td>50.366N  18.874E</td>
+                            </tr>
+                            <tr>
+                                <td>Głębokość</td>
+                                <td>700 m</td>
+                            </tr>
+                            <tr>
+                                <td>Miasto</td>
+                                <td>Bytom</td>
+                            </tr>
+                            <tr>
+                                <td>Kopalnia</td>
+                                <td>Bobrek-Centrum</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <a class="thumbnail fancybox" rel="ligthbox" href="{% static 'pages/img/sejsmo/reading_seismograms1.png' %}">
+                        <img class="img-responsive" alt="" src="{% static 'pages/img/sejsmo/reading_seismograms1.png' %}" />
+                    </a>
+
+                    <a class="thumbnail fancybox" rel="ligthbox" href="{% static 'pages/img/sejsmo/waveform_plotting_tutorial_61.png' %}">
+                        <img class="img-responsive" alt="" src="{% static 'pages/img/sejsmo/waveform_plotting_tutorial_61.png' %}" />
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}
+
+{% block javascript  %}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+    <script>
+        function initMap() {
+
+            var event = {lat: 50.366495, lng: 18.874169};
+            var station = {lat: 50.311495, lng: 18.844269};
+            var singleMap = new google.maps.Map(document.getElementById('single-map'), {
+                zoom: 12,
+                center: event,
+                styles: mapStyle
+            });
+            var marker = new google.maps.Marker({
+                position: event,
+                map: singleMap,
+                icon: "{% static 'pages/grafika/event_map_mark.png' %}"
+            });
+
+            var marker2 = new google.maps.Marker({
+                position: station,
+                map: singleMap,
+                icon: "{% static 'pages/grafika/station_map_mark.png' %}"
+            });
+
+        }
+
+        $(document).ready(function () {
+            //Fency box
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+        });
+
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJyihe6tbI9ubunBcZGaq1ZnCuSi5gdDg&callback=initMap">
+    </script>
+
+{% endblock %}
+
