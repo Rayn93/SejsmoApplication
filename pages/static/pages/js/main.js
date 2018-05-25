@@ -58,8 +58,6 @@ $(document).ready(function () {
 
 
 
-
-
 //PODMIANA KLASY PRZY SZEROKOŚCI OKNA 620PX DLA SEKCJI KATEGORIE
 $(window).resize(function () {
 

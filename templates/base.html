@@ -29,15 +29,15 @@
 
 <body id="{%block bodyid%}{%endblock%}">
 
-<!--<div id="fb-root"></div>-->
-<!--<script>(function (d, s, id) {-->
-    <!--var js, fjs = d.getElementsByTagName(s)[0];-->
-    <!--if (d.getElementById(id)) return;-->
-    <!--js = d.createElement(s);-->
-    <!--js.id = id;-->
-    <!--js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.7&appId=603470526483998";-->
-    <!--fjs.parentNode.insertBefore(js, fjs);-->
-<!--}(document, 'script', 'facebook-jssdk'));</script>-->
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.7&appId=603470526483998";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <!--HEADER -->
 <header>
@@ -45,18 +45,7 @@
     {% include "sticky-header.html" %}
 
     {% block image_top %}
-        <!--Top Imagine for static pages-->
-        <div class="container-fluid nopadding">
-            <div class="row nomargin">
-                <div class="static-top">
-                    <img class="img-background" src="img/slajdy/spodek.jpg" alt="o-projekcie">
 
-                    <h1>O PROJEKCIE</h1>
-
-                </div>
-            </div>
-        </div>
-        <!--END Object top info-->
     {% endblock%}
 
 </header>
@@ -96,15 +85,15 @@
         Saternus</a></div>
 </footer>
 
-<!--&lt;!&ndash;SOCIAL MEDIA ICONS&ndash;&gt;-->
-<!--<div id="fb-widget">-->
-    <!--<div class="fb-page" data-href="https://www.facebook.com/geofizyka.geologia.uni.slaski" data-tabs="timeline"-->
-         <!--data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">-->
-        <!--<blockquote cite="https://www.facebook.com/geofizyka.geologia.uni.slaski" class="fb-xfbml-parse-ignore"><a-->
-                <!--href="https://www.facebook.com/geofizyka.geologia.uni.slaski">FreeLancelot</a></blockquote>-->
-    <!--</div>-->
-    <!--<img class="zakladka" src="{% static 'pages/img/facebook-icon.png' %}" alt="Rankingowiec facebook funpage"/>-->
-<!--</div>-->
+<!--SOCIAL MEDIA ICONS-->
+<div id="fb-widget">
+    <div class="fb-page" data-href="https://www.facebook.com/geofizyka.geologia.uni.slaski" data-tabs="timeline"
+         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/geofizyka.geologia.uni.slaski" class="fb-xfbml-parse-ignore"><a
+                href="https://www.facebook.com/geofizyka.geologia.uni.slaski">FreeLancelot</a></blockquote>
+    </div>
+    <img class="zakladka" src="{% static 'pages/img/facebook-icon.png' %}" alt="Rankingowiec facebook funpage"/>
+</div>
 
 
 <script>
