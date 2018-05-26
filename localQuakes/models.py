@@ -16,7 +16,7 @@ class localQuake(models.Model):
     magnitudeScale = models.CharField('Skala magnitudy', max_length=2, choices=MAGNITUDE_SCALES, default='ML')
     energy = models.BigIntegerField('Energia', null=True, blank=True)
     city = models.CharField('Miasto', max_length=60)
-    region = models.CharField('Region', max_length=200, null=True, blank=True)
+    region = models.CharField('Region/Kopalnia', max_length=200, null=True, blank=True)
     moreInfo = models.TextField('Więcej informacji', null=True, blank=True)
 
     longitude = models.CharField('Długość geogr.', max_length=20)
@@ -33,6 +33,7 @@ class localQuake(models.Model):
     class Meta:
         verbose_name = "Wstrząs lokalny"
         verbose_name_plural = "Wstrząsy lokalne"
+
 
 
     def __str__(self):

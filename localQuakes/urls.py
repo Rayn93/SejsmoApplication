@@ -1,3 +1,4 @@
+
 from django.urls import path
 
 # from . import views
@@ -11,3 +12,4 @@ urlpatterns = [
     path('wstrzas-lokalny-<int:pk>/', localQuakeDetailView.as_view(), name='localEvent'),
 
 ]
+

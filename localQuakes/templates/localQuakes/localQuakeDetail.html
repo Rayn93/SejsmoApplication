@@ -50,11 +50,15 @@
                                 <td>Maginituda ({{object.magnitudeScale}})</td>
                                 <td>{{ object.magnitude }}</td>
                             </tr>
+
+                            {% if object.energy is not null %}
                             <tr>
                                 <td>Energia</td>
                                 <!--<td>3x10<SUP>6</SUP> </td>-->
                                 <td>{{ object.energy }} J</td>
                             </tr>
+                            {% endif %}
+
                             <tr>
                                 <td>Lokalizacja</td>
                                 <td>{{object.latitude|floatformat:3}}N {{ object.longitude|floatformat:3 }}E</td>
@@ -63,14 +67,44 @@
                                 <td>Głębokość</td>
                                 <td>{{object.depth}} m </td>
                             </tr>
+
+                            {% if object.depthPPM is not null %}
+                                <tr>
+                                    <td>Głębokość p.p.m.</td>
+                                    <td>{{ object.depthPPM }} </td>
+                                </tr>
+                            {% endif %}
+
+
                             <tr>
                                 <td>Miasto</td>
                                 <td>{{ object.city }}</td>
                             </tr>
-                            <tr>
-                                <td>Kopalnia</td>
-                                <td>Bobrek-Centrum</td>
-                            </tr>
+
+                            {% if object.region is not null %}
+                                <tr>
+                                    <td>Region / Kopalnia</td>
+                                    <td>{{ object.region }} </td>
+                                </tr>
+                            {% endif %}
+
+
+                            {% if object.suchaX and object.suchaY is not null %}
+                                <tr>
+                                    <td>Współ. Sucha Góra</td>
+                                    <td>{{ object.suchaX }} X : { object.suchaY }} Y</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if object.moreInfo|length > 0 %}
+                                <tr>
+                                    <td>Uwagi</td>
+                                    <td>{{ object.moreInfo }} </td>
+                                </tr>
+                            {% endif %}
+
+
+
                         </tbody>
                     </table>
 
@@ -78,13 +112,17 @@
 
                 <div class="col-md-6">
 
-                    <a class="thumbnail fancybox" rel="ligthbox" href="{% static 'pages/img/sejsmo/reading_seismograms1.png' %}">
-                        <img class="img-responsive" alt="" src="{% static 'pages/img/sejsmo/reading_seismograms1.png' %}" />
+                    <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.seismogram.url  }}">
+                        <img class="img-responsive" alt="" src="{{ object.seismogram.url  }}" />
                     </a>
 
-                    <a class="thumbnail fancybox" rel="ligthbox" href="{% static 'pages/img/sejsmo/waveform_plotting_tutorial_61.png' %}">
-                        <img class="img-responsive" alt="" src="{% static 'pages/img/sejsmo/waveform_plotting_tutorial_61.png' %}" />
-                    </a>
+                    {% if object.attachments is not null %}
+                        <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.attachments.url }}">
+                            <img class="img-responsive" alt="" src="{{ object.attachments.url }}" />
+                        </a>
+                    {% endif %}
+
+
 
                 </div>
             </div>
