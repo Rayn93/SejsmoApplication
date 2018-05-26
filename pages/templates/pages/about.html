@@ -236,30 +236,18 @@
 
                         <!--Table body-->
                         <tbody>
-                        <tr>
-                            <th>Sosnowiec</th>
-                            <td>WNZ</td>
-                            <td>20 Maj 2010</td>
-                            <td><a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a></td>
-                        </tr>
-                        <tr>
-                            <th>Chorzów</th>
-                            <td>PLM</td>
-                            <td>20 Maj 2012</td>
-                            <td><a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a></td>
-                        </tr>
-                        <tr>
-                            <th>Mysłowice</th>
-                            <td>MYS</td>
-                            <td>20 Maj 2016</td>
-                            <td><a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a></td>
-                        </tr>
-                        <tr>
-                            <th>Łaziska Górne</th>
-                            <td>LZG</td>
-                            <td>20 Maj 2017</td>
-                            <td><a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a></td>
-                        </tr>
+
+                        {% for station in object_list %}
+
+                            <tr>
+                                <th>{{ station.name }}</th>
+                                <td>{{ station.shortName }}</td>
+                                <td>{{ station.stationCreateDate|date:"d M Y" }}</td>
+                                <td><a href='{{ station.get_absolute_url }}' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></a></td>
+                            </tr>
+
+                        {% endfor %}
+
                         </tbody><!--Table body-->
 
                     </table><!--Table-->
@@ -286,15 +274,16 @@
         function initMap() {
 
             var locationStations = [
-                ['Sosnowie [SOS] ',  50.298968, 19.133768, 1 ],
-                ['Mysłowice [MYS]',  50.209314, 19.118793, 2],
-                ['Łaziska Górne [LAG]', 50.149592, 18.871817, 3],
-                ['Chorzów [CHR]',  50.290576, 18.992003, 4]
+
+                {% for station in object_list %}
+                    ['{{ station.name }} ({{ station.shortName }})',  {{ station.latitude }}, {{ station.longitude }}, '{{ station.get_absolute_url }}', {{ forloop.counter }} ],
+                {% endfor %}
+
             ];
 
 
             var stationdMap = new google.maps.Map(document.getElementById('stationMap'), {
-                zoom: 11,
+                zoom: 10,
                 center: silesiaCenter,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 styles: mapStyle
@@ -320,7 +309,7 @@
                         infowindow.setContent(
                                 '<div class="markerDescription">'+
                                 '<strong>Nazwa stacji: <br /> </strong>'+locationStations[i][0] + '<br />'+
-                                '<a class="text-right" href="#">Więcej</a>'+
+                                '<a class="text-right" href="'+ locationStations[i][3] +'">Więcej</a>'+
                                 '</div>'
 
                         );

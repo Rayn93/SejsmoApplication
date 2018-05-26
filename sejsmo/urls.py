@@ -21,6 +21,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('pages.urls')),
-    path('katalog-lokalny/', include('localQuakes.urls')),
+    path('', include(('pages.urls', 'pages'), namespace='pages')),
+    path('katalog-lokalny/', include(('localQuakes.urls', 'localQuakes'), namespace='localQuakes')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

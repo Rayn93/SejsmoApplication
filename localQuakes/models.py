@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 
 class localQuake(models.Model):
 
@@ -38,6 +39,10 @@ class localQuake(models.Model):
 
     def __str__(self):
         return "Wstrząs o id: %d | " % (self.id) + "Data zdarzenia: {:%d  %b %Y}".format(self.eventDate)
+
+
+    def get_absolute_url(self):
+        return reverse('localQuakes:detail', args=[str(self.id)])
 
 
 
