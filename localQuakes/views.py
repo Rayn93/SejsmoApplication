@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from .models import localQuake
 
@@ -16,5 +16,11 @@ class localQuakesListView(ListView):
     model = localQuake
 
 
-class localQuakeDetailView(TemplateView):
-    template_name = "localQuakeDetail.html"
+class localQuakeDetailView(DetailView):
+    template_name = "localQuakes/localQuakeDetail.html"
+
+    model = localQuake
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

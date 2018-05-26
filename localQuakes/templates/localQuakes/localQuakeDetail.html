@@ -32,7 +32,7 @@
         <div class="container">
             <div class="row">
 
-                <h2>Wstrząs sejsmiczny o id: 12</h2>
+                <h2>Wstrząs sejsmiczny o id: {{object.id}}</h2>
 
                 <div class="col-md-6">
 
@@ -40,31 +40,32 @@
                         <tbody>
                             <tr>
                                 <td>Data</td>
-                                <td>27 maj 2017</td>
+                                <td>{{object.eventDate|date:"d M Y"}}</td>
                             </tr>
                             <tr>
                                 <td>Czas zdarzenia</td>
-                                <td>12:15</td>
+                                <td>{{object.eventDate|date:"H:i"}}</td>
                             </tr>
                             <tr>
-                                <td>Maginituda Lokalna</td>
-                                <td>2.9</td>
+                                <td>Maginituda ({{object.magnitudeScale}})</td>
+                                <td>{{ object.magnitude }}</td>
                             </tr>
                             <tr>
                                 <td>Energia</td>
-                                <td>3x10<SUP>6</SUP> </td>
+                                <!--<td>3x10<SUP>6</SUP> </td>-->
+                                <td>{{ object.energy }} J</td>
                             </tr>
                             <tr>
                                 <td>Lokalizacja</td>
-                                <td>50.366N  18.874E</td>
+                                <td>{{object.latitude|floatformat:3}}N {{ object.longitude|floatformat:3 }}E</td>
                             </tr>
                             <tr>
                                 <td>Głębokość</td>
-                                <td>700 m</td>
+                                <td>{{object.depth}} m </td>
                             </tr>
                             <tr>
                                 <td>Miasto</td>
-                                <td>Bytom</td>
+                                <td>{{ object.city }}</td>
                             </tr>
                             <tr>
                                 <td>Kopalnia</td>
@@ -101,10 +102,11 @@
     <script>
         function initMap() {
 
-            var event = {lat: 50.366495, lng: 18.874169};
-            var station = {lat: 50.311495, lng: 18.844269};
+
+            var event = {lat: {{ object.latitude }}, lng: {{ object.longitude }} };
+            // var station = {lat: 50.311495, lng: 18.844269};
             var singleMap = new google.maps.Map(document.getElementById('single-map'), {
-                zoom: 12,
+                zoom: 11,
                 center: event,
                 styles: mapStyle
             });
@@ -114,11 +116,11 @@
                 icon: "{% static 'pages/grafika/event_map_mark.png' %}"
             });
 
-            var marker2 = new google.maps.Marker({
-                position: station,
-                map: singleMap,
-                icon: "{% static 'pages/grafika/station_map_mark.png' %}"
-            });
+            // var marker2 = new google.maps.Marker({
+            //     position: station,
+            //     map: singleMap,
+            //     icon: "{% static 'pages/grafika/station_map_mark.png' %}"
+            // });
 
         }
 

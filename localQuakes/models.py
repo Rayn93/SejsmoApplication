@@ -12,15 +12,15 @@ class localQuake(models.Model):
 
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Autor")
     eventDate = models.DateTimeField('Data i czas')
-    magnitude = models.DecimalField('Magnituda', max_digits=4, decimal_places=2)
+    magnitude = models.DecimalField('Magnituda', max_digits=3, decimal_places=1)
     magnitudeScale = models.CharField('Skala magnitudy', max_length=2, choices=MAGNITUDE_SCALES, default='ML')
     energy = models.BigIntegerField('Energia', null=True, blank=True)
     city = models.CharField('Miasto', max_length=60)
     region = models.CharField('Region', max_length=200, null=True, blank=True)
     moreInfo = models.TextField('Więcej informacji', null=True, blank=True)
 
-    longitude = models.DecimalField('Długość geogr.', max_digits=9, decimal_places=6)
-    latitude = models.DecimalField('Szerokość geogr.', max_digits=8, decimal_places=6)
+    longitude = models.CharField('Długość geogr.', max_length=20)
+    latitude = models.CharField('Szerokość geogr.', max_length=20)
     suchaX = models.IntegerField('Sucha Góra X', null=True, blank=True)
     suchaY = models.IntegerField('Sucha Góra Y', null=True, blank=True)
     depth = models.IntegerField('Głębokość')
