@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import localQuake
+from .models import LocalQuake
 
 # Register your models here.
 
 
-admin.site.register(localQuake)
+admin.site.register(LocalQuake)

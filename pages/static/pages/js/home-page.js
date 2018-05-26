@@ -17,24 +17,6 @@
 
 function initMap() {
 
-    var locations = [
-        ['Bytom', '12 listopad 2017 00:55', 3.1, 50.366495, 18.874169, 4],
-        ['Orzesze', '6 listopad 2017 12:55', 2.1, 50.143555, 18.795350, 5],
-        ['Katowice', '2 listopad 2017 07:55', 2.6, 50.243555, 18.995350, 3],
-        ['Pszczyna', '30 listopad 2017 18:55', 2.8, 49.970026, 19.092426, 2],
-        ['Lędziny', '5 grudzień 2017 03:55', 2.0, 50.130933, 19.142082, 1]
-    ];
-
-    var locationsWorld = [
-        ['Nowa Zelandia', '12 listopad 2017 00:55', 6.1, -43.860600, 171.294639, 4],
-        ['Japonia', '6 listopad 2017 12:55', 5.7, 35.319650, 137.252233, 5],
-        ['Indonezja', '2 listopad 2017 07:55', 5.6, -2.739081, 102.196058, 3],
-        ['Chile', '30 listopad 2017 18:55', 7.1, -29.993567, -71.010555, 2],
-        ['Dominikana', '5 grudzień 2017 03:55', 6.5, 19.146026, -71.184710, 1],
-        ['Włochy', '5 grudzień 2017 03:55', 5.5, 42.762221, 12.999896, 1],
-        ['Grecja', '5 grudzień 2017 03:55', 4.7, 38.324176, 22.010317, 1]
-    ];
-
 
     var locationStations = [
         ['Sosnowie [SOS] ',  -43.860600, 171.294639, 1 ],
@@ -88,8 +70,8 @@ function initMap() {
                     '<div class="markerDescription">'+
                         '<strong>Miasto: </strong>'+locations[i][0] + '<br />'+
                         '<strong>Czas: </strong>'+locations[i][1] + '<br />'+
-                        '<strong>Energia: </strong>'+locations[i][2] + '<br />'+
-                        '<a class="text-right" href="#">Więcej</a>'+
+                        '<strong>Magnituda: </strong>'+locations[i][2] + '<br />'+
+                        '<a class="text-right" href="'+locations[i][5]+'">Więcej</a>'+
                     '</div>'
 
                 );

@@ -18,9 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 # from django.views.generic import TemplateView
+from stations.views import StationDetailView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('pages.urls', 'pages'), namespace='pages')),
     path('katalog-lokalny/', include(('localQuakes.urls', 'localQuakes'), namespace='localQuakes')),
+    path('stacja/<slug:slug>/', StationDetailView.as_view(), name='stationDetail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

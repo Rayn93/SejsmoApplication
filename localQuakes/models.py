@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
-class localQuake(models.Model):
+class LocalQuake(models.Model):
 
     MAGNITUDE_SCALES = (
         ('ML', 'Magnituda lokalna (ML)'),

@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
-class station(models.Model):
+class Station(models.Model):
 
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Autor")
     name = models.CharField('Nazwa', max_length=120)
@@ -15,7 +15,7 @@ class station(models.Model):
     latitude = models.CharField('Szerokość geogr.', max_length=20)
     suchaX = models.IntegerField('Sucha Góra X', null=True, blank=True)
     suchaY = models.IntegerField('Sucha Góra Y', null=True, blank=True)
-    height = models.IntegerField('Wysokość')
+    altitude = models.IntegerField('Wysokość')
 
     moreInfo = models.TextField('Więcej informacji', null=True, blank=True)
     images = models.ImageField('Załączniki - zdjęcia', upload_to='uploads/stations/attachments', null=True, blank=True)
@@ -32,8 +32,8 @@ class station(models.Model):
         return self.name + " (%s)" % self.shortName
 
 
-    # def get_absolute_url(self):
-    #     return reverse('localQuakes:detail', args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse('stationDetail', args=[str(self.slug)])
 
 
 

@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head_title %}Stacja sejsmiczna {{ object.name }} | USS UŚ{% endblock %}
+
+{% block head_description %}Szczegółowe informacje na temat stacji sejsmicznej {{ object.name }}. Strona sieci sejsmologicznej UŚ ma za zadanie dostarczenie informacji o wstrząsach sejsmicznych zarejestrowanych przez USS UŚ na Grónym Śląsku{% endblock %}
+
+{% block bodyid %}single-station{% endblock %}
+
+{% block image_top %}
+
+<!--Top Imagine for static pages-->
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="static-top">
+                <div id="single-map"></div>
+            </div>
+        </div>
+    </div>
+    <!--END Object top info-->
+
+
+
+{% endblock %}
+
+{% block page_content %}
+
+<main>
+
+    <section id="event-table">
+        <div class="container">
+            <div class="row">
+
+                <h2>Stacja sejsmologiczna: {{object.name}}</h2>
+
+                <div class="col-md-6">
+
+                    <table class="table table-bordered">
+
+                        <tbody>
+                            <tr>
+                                <td>Skrót nazwy</td>
+                                <td>{{ object.shortName }}</td>
+                            </tr>
+                            <tr>
+                                <td>Data założenia</td>
+                                <td>{{ object.stationCreateDate }}</td>
+                            </tr>
+                            <tr>
+                                <td>Lokalizacja</td>
+                                <td>{{object.latitude|floatformat:3}}N {{ object.longitude|floatformat:3 }}E</td>
+                            </tr>
+                            <tr>
+                                <td>Wysokość n.p.m.</td>
+                                <td>{{ object.altitude }} m n.p.m.</td>
+                            </tr>
+                            <tr>
+                                <td>Nr sejsmometru</td>
+                                <td>{{ object.seismometerNumber }}</td>
+                            </tr>
+
+                            {% if object.suchaX and object.suchaY is not null %}
+                                <tr>
+                                    <td>Współ. Sucha Góra</td>
+                                    <td>{{ object.suchaX }} X : {{ object.suchaY }} Y</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if object.moreInfo|length > 0 %}
+                                <tr>
+                                    <td>Uwagi</td>
+                                    <td>{{ object.moreInfo }} </td>
+                                </tr>
+                            {% endif %}
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.images.url  }}">
+                        <img class="img-responsive" alt="" src="{{ object.images.url  }}" />
+                    </a>
+
+                    {% if object.files|length > 0 %}
+                        <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.files.url }}">
+                            <img class="img-responsive" alt="" src="{{ object.files.url }}" />
+                        </a>
+                    {% endif %}
+
+                </div>
+
+
+
+            </div>
+
+        <a class="button mb60" href="{% url "pages:about" %}">Powrót do listy stacji</a>
+
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}
+
+{% block javascript  %}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+    <script>
+
+        function initMap() {
+
+            var station = {lat: {{ object.latitude }}, lng: {{ object.longitude }} };
+            var singleMap = new google.maps.Map(document.getElementById('single-map'), {
+                zoom: 10,
+                center: station,
+                styles: mapStyle
+            });
+            var marker = new google.maps.Marker({
+                position: station,
+                map: singleMap,
+                icon: "{% static 'pages/grafika/station_map_mark.png' %}"
+            });
+
+        }
+
+        $(document).ready(function () {
+            //Fency box
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+        });
+
+
+
+
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJyihe6tbI9ubunBcZGaq1ZnCuSi5gdDg&callback=initMap">
+    </script>
+
+{% endblock %}
+
