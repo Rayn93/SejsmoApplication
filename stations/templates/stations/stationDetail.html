@@ -81,9 +81,15 @@
 
                 <div class="col-md-6">
 
-                    <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.images.url  }}">
-                        <img class="img-responsive" alt="" src="{{ object.images.url  }}" />
-                    </a>
+
+
+                    {% if object.images.url|length > 0 %}
+                        <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.images.url }}">
+                            <img class="img-responsive" alt="" src="{{ object.images.url }}"/>
+                        </a>
+                    {% endif %}
+
+
 
                     {% if object.files|length > 0 %}
                         <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.files.url }}">
@@ -142,7 +148,7 @@
     </script>
 
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJyihe6tbI9ubunBcZGaq1ZnCuSi5gdDg&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_upCvmfIJ1lQjTrdbaCMT0228fAGq1wI&callback=initMap">
     </script>
 
 {% endblock %}
