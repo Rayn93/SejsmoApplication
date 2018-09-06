@@ -41,31 +41,37 @@
 
 
                     <div class="table-responsive mt20">
-                        {% render_table localQuakes %}
 
-{#                        <table class="table table-bordered">#}
-{#                            <thead>#}
-{#                                <th>ID</th>#}
-{#                                <th>Data</th>#}
-{#                                <th>Czas</th>#}
-{#                                <th>Magnituda</th>#}
-{#                                <th>Miasto</th>#}
-{#                                <th>Więcej</th>#}
-{#                            </thead>#}
-{##}
-{#                            {% for quake in object_list %}#}
-{#                                <tr>#}
-{#                                    <td>{{ quake.id }}</td>#}
-{#                                    <td>{{ quake.eventDate|date:"d M Y" }}</td>#}
-{#                                    <td>{{ quake.eventDate|date:"H:i" }}</td>#}
-{#                                    <td>{{ quake.magnitude }}</td>#}
-{#                                    <td>{{ quake.city }}</td>#}
-{#                                    <td><a href="{{ quake.get_absolute_url }}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a></td>#}
-{#                                </tr>#}
-{#                            {% endfor %}#}
-{##}
-{##}
-{#                        </table>#}
+                         <form method="get">
+                            {{ filter.form.as_p }}
+                            <button type="submit">Search</button>
+                          </form>
+
+{#                        {% render_table table_filter %}#}
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <th>ID</th>
+                                <th>Data</th>
+                                <th>Czas</th>
+                                <th>Magnituda</th>
+                                <th>Miasto</th>
+                                <th>Więcej</th>
+                            </thead>
+
+                            {% for quake in filter.qs %}
+                                <tr>
+                                    <td>{{ quake.id }}</td>
+                                    <td>{{ quake.eventDate|date:"d M Y" }}</td>
+                                    <td>{{ quake.eventDate|date:"H:i" }}</td>
+                                    <td>{{ quake.magnitude }}</td>
+                                    <td>{{ quake.city }}</td>
+                                    <td><a href="{{ quake.get_absolute_url }}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                </tr>
+                            {% endfor %}
+
+
+                        </table>
                     </div>
 
 
