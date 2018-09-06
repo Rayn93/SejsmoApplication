@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% load render_table from django_tables2 %}
+
 
 {% block head_title %}Katalog Lokalny USS UŚ{% endblock %}
 
@@ -36,42 +38,46 @@
                 <div class="col-md-12">
 
 
+
+
                     <div class="table-responsive mt20">
-                        <table class="table table-bordered">
-                            <thead>
-                                <th>ID</th>
-                                <th>Data</th>
-                                <th>Czas</th>
-                                <th>Magnituda</th>
-                                <th>Miasto</th>
-                                <th>Więcej</th>
-                            </thead>
+                        {% render_table localQuakes %}
 
-                            {% for quake in object_list %}
-                                <tr>
-                                    <td>{{ quake.id }}</td>
-                                    <td>{{ quake.eventDate|date:"d M Y" }}</td>
-                                    <td>{{ quake.eventDate|date:"H:i" }}</td>
-                                    <td>{{ quake.magnitude }}</td>
-                                    <td>{{ quake.city }}</td>
-                                    <td><a href="{{ quake.get_absolute_url }}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                </tr>
-                            {% endfor %}
-
-
-                        </table>
+{#                        <table class="table table-bordered">#}
+{#                            <thead>#}
+{#                                <th>ID</th>#}
+{#                                <th>Data</th>#}
+{#                                <th>Czas</th>#}
+{#                                <th>Magnituda</th>#}
+{#                                <th>Miasto</th>#}
+{#                                <th>Więcej</th>#}
+{#                            </thead>#}
+{##}
+{#                            {% for quake in object_list %}#}
+{#                                <tr>#}
+{#                                    <td>{{ quake.id }}</td>#}
+{#                                    <td>{{ quake.eventDate|date:"d M Y" }}</td>#}
+{#                                    <td>{{ quake.eventDate|date:"H:i" }}</td>#}
+{#                                    <td>{{ quake.magnitude }}</td>#}
+{#                                    <td>{{ quake.city }}</td>#}
+{#                                    <td><a href="{{ quake.get_absolute_url }}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a></td>#}
+{#                                </tr>#}
+{#                            {% endfor %}#}
+{##}
+{##}
+{#                        </table>#}
                     </div>
 
 
 
-                    <!--<table class="global-table table table-striped "-->
-                           <!--data-paging="true"-->
-                           <!--data-sorting="true"-->
-                           <!--data-filtering="true"-->
-                           <!--data-paging-count-format="{CP} z {TP}"-->
-                           <!--data-paging-size="20"-->
-                           <!--data-filter-placeholder="Szukaj">-->
-                    <!--</table>-->
+{#                    <table class="global-table table table-striped "#}
+{#                           data-paging="true"#}
+{#                           data-sorting="true"#}
+{#                           data-filtering="true"#}
+{#                           data-paging-count-format="{CP} z {TP}"#}
+{#                           data-paging-size="20"#}
+{#                           data-filter-placeholder="Szukaj">#}
+{#                    </table>#}
 
 
 
