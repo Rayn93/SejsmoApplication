@@ -759,16 +759,29 @@ tbody td{
     text-align: left;
 }
 
-table.footable{
-    margin: 100px 0;
+/*table.footable{*/
+    /*margin: 100px 0;*/
+/*}*/
+
+/*table.footable thead th{*/
+    /*font-size: 20px;*/
+/*}*/
+
+/*table.footable td{*/
+    /*font-size: 20px;*/
+/*}*/
+
+.filter-heading{
+    margin-top: 0;
+    text-align: left;
+    font-weight: bold;
 }
 
-table.footable thead th{
-    font-size: 20px;
-}
-
-table.footable td{
-    font-size: 20px;
+button.search_btn{
+    display: inherit;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-left: 5px;
 }
 
 

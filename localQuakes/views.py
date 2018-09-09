@@ -16,7 +16,7 @@ from .models import LocalQuake
 #     model = LocalQuake
 
 def quakes_list(request):
-    quake_list = LocalQuake.objects.all()
+    quake_list = LocalQuake.objects.all().order_by('-eventDate')
     table_filter = QuakeFilter(request.GET, queryset=quake_list)
     # RequestConfig(request).configure(table)
 
