@@ -1,11 +1,6 @@
 from django.shortcuts import render
-from .tables import LocalQuakesTable
-from django_tables2 import RequestConfig
 
 from .filters import QuakeFilter
-
-
-# Create your views here.
 from django.views.generic import ListView, DetailView
 
 from .models import LocalQuake
@@ -21,11 +16,11 @@ from .models import LocalQuake
 #     model = LocalQuake
 
 def quakes_list(request):
-    table = LocalQuake.objects.all()
-    table_filter = QuakeFilter(request.GET, queryset=table)
+    quake_list = LocalQuake.objects.all()
+    table_filter = QuakeFilter(request.GET, queryset=quake_list)
     # RequestConfig(request).configure(table)
-    return render(request, 'localQuakes/localQuakesList.html', {'filter': table_filter})
 
+    return render(request, 'localQuakes/localQuakesList.html', {'filter': table_filter})
 
 
 
