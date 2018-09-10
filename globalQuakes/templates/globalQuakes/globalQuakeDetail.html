@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% load static %}
+{% load mathfilters %}
+
+
+{% block head_title %}Trzęsienie Ziemi o id {{ object.id }}{% endblock %}
+
+{% block head_description %}Strona sieci sejsmologicznej UŚ ma za zadanie dostarczenie informacji o wstrząsach sejsmicznych zarejestrowanych przez USS UŚ na Grónym Śląsku{% endblock %}
+
+{% block bodyid %}single-event{% endblock %}
+
+{% block image_top %}
+
+<!--Top Imagine for static pages-->
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="static-top">
+                <div id="single-map"></div>
+            </div>
+        </div>
+    </div>
+    <!--END Object top info-->
+
+
+
+{% endblock %}
+
+{% block page_content %}
+
+<main>
+
+    <section id="event-table">
+        <div class="container">
+            <div class="row">
+
+                <h2>Trzęsienie Ziemi o id: {{object.id}}</h2>
+
+                <div class="col-md-6">
+
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td>Data</td>
+                                <td>{{object.eventDate|date:"d M Y"}}</td>
+                            </tr>
+                            <tr>
+                                <td>Czas zdarzenia</td>
+                                <td>{{object.eventDate|date:"H:i"}}</td>
+                            </tr>
+                            <tr>
+                                <td>Maginituda ({{object.magnitudeScale}})</td>
+                                <td>{{ object.magnitude }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Lokalizacja</td>
+                                <td>
+                                    {{object.latitude|abs}}{% if object.object.latitude > 0 %}N{% else %}S{% endif %}
+                                    {{object.longitude|abs}}{% if object.object.longitude > 0 %}W{% else %}E{% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Głębokość</td>
+                                <td>{{object.depth}} Km </td>
+                            </tr>
+
+                            <tr>
+                                <td>Region</td>
+                                <td>{{ object.region }}</td>
+                            </tr>
+
+
+                            {% if object.moreInfo|length > 0 %}
+                                <tr>
+                                    <td>Uwagi</td>
+                                    <td>{{ object.moreInfo }} </td>
+                                </tr>
+                            {% endif %}
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.seismogram.url  }}">
+                        <img class="img-responsive" alt="" src="{{ object.seismogram.url  }}" />
+                    </a>
+
+                    {% if object.attachments|length > 0 %}
+                        <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.attachments.url }}">
+                            <img class="img-responsive" alt="" src="{{ object.attachments.url }}" />
+                        </a>
+                    {% endif %}
+
+                </div>
+
+
+
+            </div>
+
+        <a class="button mb60" href="{% url "globalQuakes:list" %}">Katalog Trzęsień Ziemi</a>
+
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}
+
+{% block javascript  %}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+    <script>
+        function initMap() {
+
+
+            var event = {lat: {{ object.latitude }}, lng: {{ object.longitude }} };
+            // var station = {lat: 50.311495, lng: 18.844269};
+            var singleMap = new google.maps.Map(document.getElementById('single-map'), {
+                zoom: 4,
+                center: event,
+                styles: mapStyle
+            });
+            var marker = new google.maps.Marker({
+                position: event,
+                map: singleMap,
+                icon: "{% static 'pages/grafika/event_map_mark.png' %}"
+            });
+
+            // var marker2 = new google.maps.Marker({
+            //     position: station,
+            //     map: singleMap,
+            //     icon: "{% static 'pages/grafika/station_map_mark.png' %}"
+            // });
+
+        }
+
+        $(document).ready(function () {
+            //Fency box
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+        });
+
+    </script>
+
+     <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_upCvmfIJ1lQjTrdbaCMT0228fAGq1wI&callback=initMap">
+    </script>
+
+{% endblock %}
+

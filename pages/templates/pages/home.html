@@ -164,16 +164,24 @@
             ['{{ quake.city }}', '{{ quake.eventDate|date:"d M Y H:i" }}', '{{ quake.magnitude }}', {{ quake.latitude }}, {{ quake.longitude }}, '{{ quake.get_absolute_url }}', {{ forloop.counter }}],
         {% endfor %}
 
+{#        {% for last_quakes in group %}#}
+{#            ['{{ last_quakes.city }}', '{{ last_quakes.eventDate|date:"d M Y H:i" }}', '{{ last_quakes.magnitude }}', {{ last_quakes.latitude }}, {{ last_quakes.longitude }}, '{{ last_quakes.get_absolute_url }}', {{ forloop.counter }}],#}
+{#        {% endfor %}#}
+
     ];
 
     var locationsWorld = [
-        ['Nowa Zelandia', '12 listopad 2017 00:55', 6.1, -43.860600, 171.294639, 4],
-        ['Japonia', '6 listopad 2017 12:55', 5.7, 35.319650, 137.252233, 5],
-        ['Indonezja', '2 listopad 2017 07:55', 5.6, -2.739081, 102.196058, 3],
-        ['Chile', '30 listopad 2017 18:55', 7.1, -29.993567, -71.010555, 2],
-        ['Dominikana', '5 grudzień 2017 03:55', 6.5, 19.146026, -71.184710, 1],
-        ['Włochy', '5 grudzień 2017 03:55', 5.5, 42.762221, 12.999896, 1],
-        ['Grecja', '5 grudzień 2017 03:55', 4.7, 38.324176, 22.010317, 1]
+        {#['Nowa Zelandia', '12 listopad 2017 00:55', 6.1, -43.860600, 171.294639, 4],#}
+        {#['Japonia', '6 listopad 2017 12:55', 5.7, 35.319650, 137.252233, 5],#}
+        {#['Indonezja', '2 listopad 2017 07:55', 5.6, -2.739081, 102.196058, 3],#}
+        {#['Chile', '30 listopad 2017 18:55', 7.1, -29.993567, -71.010555, 2],#}
+        {#['Dominikana', '5 grudzień 2017 03:55', 6.5, 19.146026, -71.184710, 1],#}
+        {#['Włochy', '5 grudzień 2017 03:55', 5.5, 42.762221, 12.999896, 1],#}
+        {#['Grecja', '5 grudzień 2017 03:55', 4.7, 38.324176, 22.010317, 1]#}
+
+        {% for quake in last_earthquakes %}
+            ['{{ quake.region }}', '{{ quake.eventDate|date:"d M Y H:i" }}', '{{ quake.magnitude }}', {{ quake.latitude }}, {{ quake.longitude }}, '{{ quake.get_absolute_url }}', {{ forloop.counter }}],
+        {% endfor %}
     ];
 
 

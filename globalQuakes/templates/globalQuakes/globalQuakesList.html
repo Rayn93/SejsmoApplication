@@ -6,9 +6,9 @@
 {% load widget_tweaks %}
 
 
-{% block head_title %}Katalog Lokalny USS UŚ{% endblock %}
+{% block head_title %}Katalog Trzęsień Ziemi USS UŚ{% endblock %}
 
-{% block head_description %}Katalog z lokalnymi wstrząsami wokół Górnego Śląska. Strona sieci sejsmologicznej UŚ ma za zadanie dostarczenie informacji o wstrząsach sejsmicznych zarejestrowanych przez USS UŚ na Grónym Śląsku{% endblock %}
+{% block head_description %}Katalog z Trzęsieniami Ziemi zarejestrowanymi przez USS UŚ z całego świata.{% endblock %}
 
 {% block bodyid %}catalog{% endblock %}
 
@@ -18,9 +18,9 @@
     <div class="container-fluid nopadding">
         <div class="row nomargin">
             <div class="static-top">
-                <img class="img-background" src="{% static 'pages/img/slajdy/nikoszowiec.jpg' %}" alt="mapa-strony">
+                <img class="img-background" src="{% static 'pages/img/slajdy/francisco.jpg' %}" alt="mapa-strony">
 
-                <h1>KATALOG LOKALNY</h1>
+                <h1>KATALOG <br /> TRZĘSIEŃ ZIEMI</h1>
 
             </div>
         </div>
@@ -50,8 +50,8 @@
 
                                 <div class="row">
                                     <div class="form-group col-sm-4 col-md-3">
-                                        {{ filter.form.city.label_tag }}
-                                        {% render_field filter.form.city class="form-control" %}
+                                        {{ filter.form.region.label_tag }}
+                                        {% render_field filter.form.region class="form-control" %}
                                     </div>
                                 </div>
 
@@ -109,7 +109,7 @@
                                 <th>Data</th>
                                 <th>Czas</th>
                                 <th>Magnituda</th>
-                                <th>Miasto</th>
+                                <th>Region</th>
                                 <th>Więcej</th>
                             </thead>
 
@@ -119,7 +119,7 @@
                                     <td>{{ quake.eventDate|date:"d M Y" }}</td>
                                     <td>{{ quake.eventDate|date:"H:i" }}</td>
                                     <td>{{ quake.magnitude }}</td>
-                                    <td>{{ quake.city }}</td>
+                                    <td>{{ quake.region }}</td>
                                     <td><a href="{{ quake.get_absolute_url }}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a></td>
                                 </tr>
                             {% endfor %}
