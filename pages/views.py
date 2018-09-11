@@ -18,12 +18,16 @@ class HomeView(ListView):
     #     context['group'] = zip(last_quakes, last_earthquakes)
     #     return context
 
-    queryset = LocalQuake.objects.all().order_by('-id')[:5]
+    queryset = LocalQuake.objects.all().order_by('-id')[:10]
     context_object_name = 'last_quakes'
 
-    queryset = GlobalQuake.objects.all().order_by('-id')[:5]
-    context_object_name = 'last_earthquakes'
+    # queryset2 = GlobalQuake.objects.all().order_by('-id')[:5]
+    # context_object_name2 = 'last_earthquakes'
 
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context['last_earthquakes'] = GlobalQuake.objects.all().order_by('-id')[:10]
+        return context
 
 
 class AboutView(ListView):

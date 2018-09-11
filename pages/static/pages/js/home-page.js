@@ -100,7 +100,7 @@ function initMap() {
                     '<strong>Kraj: </strong>'+locationsWorld[i][0] + '<br />'+
                     '<strong>Czas: </strong>'+locationsWorld[i][1] + '<br />'+
                     '<strong>Magnituda: </strong>'+locationsWorld[i][2] + '<br />'+
-                    '<a class="text-right" href="#">Więcej</a>'+
+                    '<a class="text-right" href="'+locationsWorld[i][5]+'">Więcej</a>'+
                     '</div>'
 
                 );
