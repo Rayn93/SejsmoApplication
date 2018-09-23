@@ -75,7 +75,7 @@ $(window).resize(function () {
 
 //General vars for generating maps
 
-var silesiaCenter = {lat: 50.243555, lng: 18.995350};
+var silesiaCenter = {lat: 50.207555, lng: 18.918350};
 var worldCenter = {lat: 0.191, lng: 22.830};
 
 var markEvent = {

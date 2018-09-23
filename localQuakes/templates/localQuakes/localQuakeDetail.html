@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% load sejsmo_extras %}
+
 
 {% block head_title %}Zdarzenie sejsmiczne o id {{ object.id }}{% endblock %}
 
@@ -57,7 +59,19 @@
                                 <!--<td>3x10<SUP>6</SUP> </td>-->
                                 <td>{{ object.energy }} J</td>
                             </tr>
+
+                            {% else %}
+
+                                <tr>
+                                    <td>Energia</td>
+{#                                  <td>3x10<SUP>6</SUP> </td>#}
+                                    <td>{{ object.magnitude|quakeEnergy  }}  J</td>
+                                </tr>
+
+
                             {% endif %}
+
+
 
                             <tr>
                                 <td>Lokalizacja</td>
@@ -112,9 +126,13 @@
 
                 <div class="col-md-6">
 
-                    <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.seismogram.url  }}">
+
+
+                     {% if object.seismogram|length > 0 %}
+                       <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.seismogram.url  }}">
                         <img class="img-responsive" alt="" src="{{ object.seismogram.url  }}" />
                     </a>
+                    {% endif %}
 
                     {% if object.attachments|length > 0 %}
                         <a class="thumbnail fancybox" rel="ligthbox" href="{{ object.attachments.url }}">
@@ -132,6 +150,10 @@
 
         </div>
     </section>
+
+    <div class="container">
+        <p class="pull-left">*dane częściowo pochodzą z serwisu: <a href="http://www.grss.gig.eu/pl/" target="_blank"> Górnośląskiej Regionalnej Sieci Sejsmologicznej GIG</a> </p>
+    </div>
 
 </main>
 

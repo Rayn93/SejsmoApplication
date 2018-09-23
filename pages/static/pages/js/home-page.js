@@ -12,7 +12,7 @@
 
 //Google maps  fo home page
 
-// var silesiaCenter = new google.maps.LatLng(50.243555, 18.995350);
+// var silesiaCenter = new google.maps.LatLng(59.243555, 19.995350);
 // var worldCenter = new google.maps.LatLng(39.305, -76.617);
 
 function initMap() {
@@ -27,7 +27,7 @@ function initMap() {
 
 
     var localMap = new google.maps.Map(document.getElementById('map'), {
-        zoom: 9,
+        zoom: 10,
         center: silesiaCenter,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         styles: mapStyle

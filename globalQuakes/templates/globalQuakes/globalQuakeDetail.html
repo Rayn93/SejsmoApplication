@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load mathfilters %}
+{% load sejsmo_extras %}
 
 
 {% block head_title %}Trzęsienie Ziemi o id {{ object.id }}{% endblock %}
@@ -55,8 +55,8 @@
                             <tr>
                                 <td>Lokalizacja</td>
                                 <td>
-                                    {{object.latitude|abs}}{% if object.object.latitude > 0 %}N{% else %}S{% endif %}
-                                    {{object.longitude|abs}}{% if object.object.longitude > 0 %}W{% else %}E{% endif %}
+                                    {{object.latitude|absolutValue}}{% if object.object.latitude > 0 %}N{% else %}S{% endif %}
+                                    {{object.longitude|absolutValue}}{% if object.object.longitude > 0 %}W{% else %}E{% endif %}
                                 </td>
                             </tr>
                             <tr>

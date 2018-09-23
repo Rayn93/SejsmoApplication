@@ -27,7 +27,7 @@ class LocalQuake(models.Model):
     depth = models.IntegerField('Głębokość')
     depthPPM = models.IntegerField('Głębokość p.p.m.', null=True, blank=True)
 
-    seismogram = models.FileField('Sejsmogram', upload_to='uploads/localQuakes/seismograms')
+    seismogram = models.FileField('Sejsmogram', upload_to='uploads/localQuakes/seismograms', null=True, blank=True)
     attachments = models.FileField('Załączniki', upload_to='uploads/localQuakes/atachments', null=True, blank=True)
     publishedDate = models.DateTimeField('Data publikacji')
 
