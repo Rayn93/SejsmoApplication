@@ -7,6 +7,11 @@ from globalQuakes.models import GlobalQuake
 # Create your views here.
 from django.views.generic import TemplateView, ListView
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+from math import *
+
 
 class HomeView(ListView):
     template_name = "pages/home.html"
@@ -34,3 +39,30 @@ class AboutView(ListView):
     template_name = "pages/about.html"
     model = Station
 
+
+class ChartData(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+
+        dates = [LocalQuake.magnitude for LocalQuake in LocalQuake.objects.all()]
+
+        dates = [log10(element) for element in dates]
+
+        return Response(dates)
+
+    # def get(self, request, format=None):
+    #     magnitude = dict()
+    #     for quake in LocalQuake.objects.all():
+    #         magnitude[quake.eventDate] = quake.magnitude
+    #
+    #             # mag = sorted(mag.items(), key=lambda x: x[1])
+    #         magnitude = dict(magnitude)
+    #
+    #     data = {
+    #         "mag_date": magnitude.keys(),
+    #         "mag_val": magnitude.values(),
+    #     }
+    #
+    #     return Response(data)
