@@ -256,33 +256,6 @@
         </div>
     </section>
 
-
-   <section>
-
-       <div class="container">
-           <h2> STatystyki</h2>
-
-
-           <div class="row">
-               <div id="myDiv" style="width:1000px;height:600px;"></div>
-           </div>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-
-           <script>
-               {#var x = [];#}
-               {#for (var i = 0; i < 500; i++) {#}
-               {#    x[i] = Math.random();#}
-               {#}#}
-
-
-           </script>
-
-
-       </div>
-
-   </section>
-
 </main>
 
 {% endblock %}
@@ -350,76 +323,6 @@
             }
 
         }
-
-
-        $(document).ready(function () {
-
-            var endpoint = '/api/chart/data/';
-            var cityData = [];
-            var eventData = [];
-            var eventMag = [];
-
-            $.ajax({
-                method: "GET",
-                url: endpoint,
-                success: function (data) {
-                    cityData = data
-                    {#eventData = data.mag_date#}
-                    {#eventMag = data.mag_val#}
-                    articleChart()
-                    transcriptChart()
-                    // console.log(data)
-                },
-                error: function (error_data) {
-                    console.log("error")
-                    console.log(error_data)
-                },
-            });
-
-
-            function articleChart() {
-               var trace = {
-                   x: cityData,
-                   type: 'histogram',
-                   histnorm: 'probability',
-                   marker: {
-                       color: 'rgb(255,255,100)',
-                   },
-               };
-               var data = [trace];
-               Plotly.newPlot('myDiv', data);
-
-
-                   {#var data = [#}
-                   {#    {#}
-                   {#        x: eventData,#}
-                   {#        y: eventMag,#}
-                   {#        type: 'scatter'#}
-                   {#    }#}
-                   {#];#}
-                   {##}
-                   {#Plotly.newPlot('myDiv', data);#}
-{##}
-{#                   var data = [{#}
-{#                       values: [19, 26, 55],#}
-{#                       labels: ['Residential', 'Non-Residential', 'Utility'],#}
-{#                       type: 'pie'#}
-{#                   }];#}
-{##}
-{#                   var layout = {#}
-{#                       height: 400,#}
-{#                       width: 500#}
-{#                   };#}
-{##}
-{#                   Plotly.newPlot('myDiv', data, layout);#}
-
-
-               }
-        })
-
-
-
-
 
     </script>
 

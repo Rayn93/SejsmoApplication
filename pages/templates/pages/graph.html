@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head_title %}Statystyki{% endblock %}
+
+{% block head_description %}Strona sieci sejsmologicznej UŚ ma za zadanie dostarczenie informacji o wstrząsach
+    sejsmicznych zarejestrowanych przez USS UŚ na Grónym Śląsku{% endblock %}
+
+{% block bodyid %}about{% endblock %}
+
+{% block image_top %}
+    <!--Top Imagine for static pages-->
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="static-top">
+                <img class="img-background" src="{% static 'pages/img/slajdy/slide0.jpg' %}" alt="statystyki">
+
+                <h1>ANALIZA DANYCH</h1>
+
+            </div>
+        </div>
+    </div>
+    <!--END Object top info-->
+{% endblock %}
+
+
+
+
+{% block page_content %}
+
+    <main>
+
+        <section id="intro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <h3 class="mainHeader">Statystyki zarejestrowanych wstrząsów lokalnych</h3>
+                        <p class="mt20 mb60">Tutaj dowiesz się jak wygląda rozkład wstrząsów zaobserwowanych przez sieć.
+                            Analiza danych jest zautomatyzowana, dlatego wszystkie dane są aktualne i obejmują wszystkie
+                            wstrząsy w katalogu lokalnym.</p>
+
+                    </div>
+
+
+                    <div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+
+                            <li role="presentation" class="active">
+                                <a href="#magnitude" aria-controls="magnitud" role="tab" data-toggle="tab">Magnitudy</a>
+                            </li>
+                             <li role="presentation">
+                                <a href="#city" aria-controls="city" role="tab" data-toggle="tab">Miasta</a>
+                            </li>
+                             <li role="presentation">
+                                <a href="#month" aria-controls="month" role="tab" data-toggle="tab">Miesiące</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#month" aria-controls="month" role="tab" data-toggle="tab">Relacja Gutenberga - Richtera</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#month" aria-controls="month" role="tab" data-toggle="tab">Hazard sejsmiczny</a>
+                            </li>
+
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="magnitude">
+                                <p class="mt20 mb20">Histogram magntud przedstawia częstotliwość rejestracji wstrząsu o
+                                    danej magnitudzie. Najwięcej zostało zarejestrowanych wstrząsów o magnitudzie
+                                    lokalnej 2.5 co świadczy, że próg kompletności katalogu jest na tym poziomie.</p>
+
+
+                                {% if graph %}
+                                    <div>
+                                        {{ graph|safe }}
+                                    </div>
+                                {% endif %}
+
+
+                                {% if graph2 %}
+                                    <div>
+                                        {{ graph2|safe }}
+                                    </div>
+                                {% endif %}
+
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane" id="city">...</div>
+                            <div role="tabpanel" class="tab-pane" id="month">...</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="separator">
+            <div class="mask"></div>
+        </div>
+
+
+    </main>
+
+{% endblock %}
+
+{% block javascript %}
+
+{#    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>#}
+
+
+    <script>
+
+
+        {#Statystyki#}
+{#        $(document).ready(function () {#}
+{##}
+{#            var endpoint = '/api/chart/data/';#}
+{#            var cityData = [];#}
+{##}
+{#            $.ajax({#}
+{#                method: "GET",#}
+{#                url: endpoint,#}
+{#                success: function (data) {#}
+{#                    cityData = data;#}
+{#                    magnitudeHistogram();#}
+                    {#console.log(data)#}
+{#                },#}
+{#                error: function (error_data) {#}
+{#                    console.log("error");#}
+{#                    console.log(error_data)#}
+{#                },#}
+{#            });#}
+{##}
+{##}
+{#            function magnitudeHistogram() {#}
+{#                var trace = {#}
+{#                    x: cityData,#}
+{#                    type: 'histogram',#}
+{#                    marker: {#}
+{#                        color: '#00a651',#}
+{#                    },#}
+{#                };#}
+{##}
+{#                var layout = {#}
+{#                    title: 'Histogram częstości magnitud wstrząsów lokalnych',#}
+{#                    xaxis: {#}
+{#                        title: 'Magnituda lokalna',#}
+{#                        titlefont: {#}
+{#                            family: 'Courier New, monospace',#}
+{#                            size: 16,#}
+{#                            color: '#7f7f7f'#}
+{#                        }#}
+{#                    },#}
+{#                    yaxis: {#}
+{#                        title: 'Ilość wstrząsów lokalnych',#}
+{#                        titlefont: {#}
+{#                            family: 'Courier New, monospace',#}
+{#                            size: 16,#}
+{#                            color: '#7f7f7f'#}
+{#                        }#}
+{#                    }#}
+{#                };#}
+{##}
+{#                var data = [trace];#}
+{#                Plotly.newPlot('magHistChart', data, layout);#}
+{##}
+{##}
+{#            }#}
+{#        })#}
+
+
+    </script>
+
+
+
+{% endblock %}
+
+
