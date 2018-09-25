@@ -1,6 +1,8 @@
 import plotly.offline as opy
 import plotly.graph_objs as go
 
+import collections
+
 
 from django.shortcuts import render
 from stations.models import Station
@@ -84,30 +86,75 @@ class Graph(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(Graph, self).get_context_data(**kwargs)
 
-        x = [-2, 0, 4, 6, 7]
-        y = [q**2-q+3 for q in x]
+        # x = [-2, 0, 4, 6, 7]
+        # y = [q**2-q+3 for q in x]
+        #
+        # x2 = [-1, 3, 4, 1, 2]
+        # y2 = [q ** 3 - q + 5 for q in x]
 
-        x2 = [-1, 3, 4, 1, 2]
-        y2 = [q ** 3 - q + 5 for q in x]
 
-        trace1 = go.Scatter(x=x, y=y, marker={'color': 'red', 'symbol': 104, 'size': 10},
-                            mode="lines",  name='1st Trace')
+        # trace1 = go.Scatter(x=x, y=y, marker={'color': 'red', 'symbol': 104, 'size': 10},
+        #                     mode="lines",  name='1st Trace')
+        #
+        # trace2 = go.Scatter(x=x2, y=y2, marker={'color': 'red', 'symbol': 104, 'size': 10},
+        #                     mode="lines", name='2st Trace')
 
-        trace2 = go.Scatter(x=x2, y=y2, marker={'color': 'red', 'symbol': 104, 'size': 10},
-                            mode="lines", name='2st Trace')
 
-        data=go.Data([trace1])
-        layout=go.Layout(title="Meine Daten", xaxis={'title':'x1'}, yaxis={'title':'x2'})
-        figure=go.Figure(data=data,layout=layout)
-        div = opy.plot(figure, auto_open=False, output_type='div')
 
-        data2 = go.Data([trace2])
+        # data=go.Data([trace1])
+        # layout=go.Layout(title="Meine Daten", xaxis={'title':'x1'}, yaxis={'title':'x2'})
+        # figure=go.Figure(data=data,layout=layout)
+        # div = opy.plot(figure, auto_open=False, output_type='div')
+        #
+        # data2 = go.Data([trace2])
+        # layout = go.Layout(title="Meine Daten", xaxis={'title': 'x1'}, yaxis={'title': 'x2'})
+        # figure2 = go.Figure(data=data2, layout=layout)
+        # div2 = opy.plot(figure2, auto_open=False, output_type='div')
+
+        # allMagnitudes = [LocalQuake.magnitude for LocalQuake in LocalQuake.objects.all()]
+        # # sortedMagnitudes = sorted(allMagnitudes, key=lambda student: student[0])
+        # counter = collections.Counter(allMagnitudes)
+        #
+        #
+        # context['graph'] = counter
+
+        allMagnitudes = [LocalQuake.magnitude for LocalQuake in LocalQuake.objects.all()]
+        allMagnitudesFloat = [float(i) for i in allMagnitudes]
+        counter = collections.Counter(allMagnitudesFloat)
+        x = [float(i) for i in counter.keys()]
+        y = [float(i) for i in counter.values()]
+
+        logy = [log10(element) for element in y]
+
+        # od = collections.OrderedDict(sorted(counter.items()))
+
+        # sortedMagnitudes = sorted(counter.items())
+
+        data = [go.Bar(
+            x=x,
+            y=logy
+        )]
         layout = go.Layout(title="Meine Daten", xaxis={'title': 'x1'}, yaxis={'title': 'x2'})
-        figure2 = go.Figure(data=data2, layout=layout)
-        div2 = opy.plot(figure2, auto_open=False, output_type='div')
+        figure3 = go.Figure(data=data, layout=layout)
+        div3 = opy.plot(figure3, auto_open=False, output_type='div')
 
-        context['graph'] = div
-        context['graph2'] = div2
+
+
+
+
+
+        # # trace3 = go.Histogram(x=allMagnitudes, y=counter, cumulative=dict(enabled=True, direction='decreasing'))
+        # trace3 = go.Histogram(x=allMagnitudesFloat)
+        #
+        #
+        # data3 = go.Data([trace3])
+        # layout = go.Layout(title="Meine Daten", xaxis={'title': 'x1'}, yaxis={'title': 'x2'})
+        # figure3 = go.Figure(data=data3, layout=layout)
+        # div3 = opy.plot(figure3, auto_open=False, output_type='div')
+        # #
+        # context['graph'] = div
+        # context['graph2'] = div2
+        context['graph3'] = div3
 
         return context
 
