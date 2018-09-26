@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head_title %}Kontakt{% endblock %}
+
+{% block head_description %}Strona sieci sejsmologicznej UŚ ma za zadanie dostarczenie informacji o wstrząsach sejsmicznych zarejestrowanych przez USS UŚ na Grónym Śląsku{% endblock %}
+
+{% block bodyid %}about{% endblock %}
+
+{% block image_top %}
+<!--Top Imagine for static pages-->
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="static-top">
+                <img class="img-background" src="{% static 'pages/img/slajdy/dworzec.jpg' %}" alt="o-projekcie">
+
+                <h1>KONTAKT</h1>
+
+            </div>
+        </div>
+    </div>
+    <!--END Object top info-->
+{% endblock %}
+
+
+
+
+{% block page_content %}
+
+   <main>
+
+    <section id="intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="mainHeader">Formularz kontaktowy</h3>
+                </div>
+
+
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="form-actions">
+                        <button type="submit">Send</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+
+</main>
+
+{% endblock %}
+
+

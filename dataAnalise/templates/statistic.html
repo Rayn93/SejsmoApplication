@@ -38,8 +38,8 @@
 
                         <h3 class="mainHeader">Statystyki zarejestrowanych wstrząsów lokalnych</h3>
                         <p class="mt20 mb60">Tutaj dowiesz się jak wygląda rozkład wstrząsów zaobserwowanych przez sieć.
-                            Analiza danych jest zautomatyzowana, dlatego wszystkie dane są aktualne i obejmują wszystkie
-                            wstrząsy w katalogu lokalnym.</p>
+                            Analiza danych jest zautomatyzowana, dlatego wszystkie dane są aktualne i obejmują cały
+                            katalog lokalny.</p>
 
                     </div>
 
@@ -51,17 +51,22 @@
                             <li role="presentation" class="active">
                                 <a href="#magnitude" aria-controls="magnitud" role="tab" data-toggle="tab">Magnitudy</a>
                             </li>
-                             <li role="presentation">
+                            <li role="presentation">
                                 <a href="#city" aria-controls="city" role="tab" data-toggle="tab">Miasta</a>
                             </li>
-                             <li role="presentation">
+                            <li role="presentation">
                                 <a href="#month" aria-controls="month" role="tab" data-toggle="tab">Miesiące</a>
                             </li>
                             <li role="presentation">
-                                <a href="#month" aria-controls="month" role="tab" data-toggle="tab">Relacja Gutenberga - Richtera</a>
+                                <a href="#gr-relation" aria-controls="month" role="tab" data-toggle="tab">Relacja
+                                    Gutenberga - Richtera</a>
                             </li>
                             <li role="presentation">
-                                <a href="#month" aria-controls="month" role="tab" data-toggle="tab">Hazard sejsmiczny</a>
+                                <a href="#hazard" aria-controls="month" role="tab" data-toggle="tab">Hazard
+                                    sejsmiczny</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#map" aria-controls="month" role="tab" data-toggle="tab">Mapa wstrząsów</a>
                             </li>
 
                         </ul>
@@ -69,35 +74,69 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="magnitude">
+
                                 <p class="mt20 mb20">Histogram magntud przedstawia częstotliwość rejestracji wstrząsu o
                                     danej magnitudzie. Najwięcej zostało zarejestrowanych wstrząsów o magnitudzie
                                     lokalnej 2.5 co świadczy, że próg kompletności katalogu jest na tym poziomie.</p>
 
-
-                                {% if graph %}
+                                {% if histogramMag %}
                                     <div>
-                                        {{ graph|safe }}
+                                        {{ histogramMag|safe }}
                                     </div>
                                 {% endif %}
 
 
-                                {% if graph2 %}
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane active" id="city">
+
+                                <p class="mt20 mb20">Wykres ilości wstrząsów w poszczególnych miastach. Jest to
+                                    bezpośrednio zależne z kopalnią, działającą w poszczególnym rejonie.</p>
+
+                                {% if histogramCity %}
                                     <div>
-                                        {{ graph2|safe }}
+                                        {{ histogramCity|safe }}
                                     </div>
                                 {% endif %}
 
 
-                                {% if graph3 %}
+                            </div>
+                            <div role="tabpanel" class="tab-pane active" id="month">
+
+                                {% if allMonths %}
                                     <div>
-                                        {{ graph3|safe }}
+                                        {{ allMonths|safe }}
                                     </div>
                                 {% endif %}
 
                             </div>
 
-                            <div role="tabpanel" class="tab-pane" id="city">...</div>
-                            <div role="tabpanel" class="tab-pane" id="month">...</div>
+
+                            <div role="tabpanel" class="tab-pane" id="gr-relation">
+
+                                <p class="mt20 mb20">
+                                    Prawo Gutenberga – Richtera stosuje się przede wszystkim do prognozowania zagrożeń
+                                    trzęsień ziemi na danym terenie.
+                                    <br/><br/>
+                                    <a href="{% url "dataAnalise:gutenberg-richter" %}">Przejdź do analizy relacji
+                                        Gutenberga - Richtera</a>
+                                </p>
+
+                            </div>
+
+
+                            <div role="tabpanel" class="tab-pane" id="hazard">...</div>
+
+                            <div role="tabpanel" class="tab-pane" id="map">
+
+
+                                 <p class="mt20 mb20">Mapa wszystkich wstrząsów z katalogu lokalnego
+                                <br/><br/>
+                                <a href="{% url "dataAnalise:quake-map" %}">Przejdź do mapy</a>
+
+
+                            </div>
+
                         </div>
 
                     </div>
@@ -117,68 +156,15 @@
 
 {% block javascript %}
 
-{#    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>#}
-
 
     <script>
 
 
-        {#Statystyki#}
-{#        $(document).ready(function () {#}
-{##}
-{#            var endpoint = '/api/chart/data/';#}
-{#            var cityData = [];#}
-{##}
-{#            $.ajax({#}
-{#                method: "GET",#}
-{#                url: endpoint,#}
-{#                success: function (data) {#}
-{#                    cityData = data;#}
-{#                    magnitudeHistogram();#}
-                    {#console.log(data)#}
-{#                },#}
-{#                error: function (error_data) {#}
-{#                    console.log("error");#}
-{#                    console.log(error_data)#}
-{#                },#}
-{#            });#}
-{##}
-{##}
-{#            function magnitudeHistogram() {#}
-{#                var trace = {#}
-{#                    x: cityData,#}
-{#                    type: 'histogram',#}
-{#                    marker: {#}
-{#                        color: '#00a651',#}
-{#                    },#}
-{#                };#}
-{##}
-{#                var layout = {#}
-{#                    title: 'Histogram częstości magnitud wstrząsów lokalnych',#}
-{#                    xaxis: {#}
-{#                        title: 'Magnituda lokalna',#}
-{#                        titlefont: {#}
-{#                            family: 'Courier New, monospace',#}
-{#                            size: 16,#}
-{#                            color: '#7f7f7f'#}
-{#                        }#}
-{#                    },#}
-{#                    yaxis: {#}
-{#                        title: 'Ilość wstrząsów lokalnych',#}
-{#                        titlefont: {#}
-{#                            family: 'Courier New, monospace',#}
-{#                            size: 16,#}
-{#                            color: '#7f7f7f'#}
-{#                        }#}
-{#                    }#}
-{#                };#}
-{##}
-{#                var data = [trace];#}
-{#                Plotly.newPlot('magHistChart', data, layout);#}
-{##}
-{##}
-{#            }#}
-{#        })#}
+        $(document).ready(function () {
+
+            $('#city, #month').removeClass('active');
+
+        });
 
 
     </script>

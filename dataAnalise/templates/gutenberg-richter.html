@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head_title %}Rozkład Gutenberga Richtera{% endblock %}
+
+{% block head_description %}Rozkład Gutenberga Richtera dla wstrząsów zarejestrowanych przez USS UŚ{% endblock %}
+
+{% block bodyid %}about{% endblock %}
+
+{% block image_top %}
+    <!--Top Imagine for static pages-->
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="static-top">
+                <img class="img-background" src="{% static 'pages/img/slajdy/slide0.jpg' %}" alt="statystyki">
+
+                <h1>Rozkład <BR /> Gutenberga - Richtera</h1>
+
+            </div>
+        </div>
+    </div>
+    <!--END Object top info-->
+{% endblock %}
+
+
+
+
+{% block page_content %}
+
+    <main>
+
+        <section id="intro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <h3 class="mainHeader">Rozkład Gutenberga - Richtera dla wstrząsów zarejestrowanych przez USS
+                            UŚ</h3>
+
+                        <p class="mt20 text-left">Tutaj krok po kroku zobaczysz jak wygląda rozkład Gutenverga Richtera
+                            dla zdarzeń zarejestrowanych przez Uczelnianą Sieć Sejsmologiczną Uniwersytetu Śląskiego.
+                            Skrypt został tak zaprogramowany, że automatycznie oblicza relację Gutenbera - Richtera dla
+                            wszystkich strząsów znajdujących się w <a href="{% url "localQuakes:list" %}"> katalogu
+                                lokalnym </a></p>
+
+                        <p class="mt20 mb60 text-left">Prawo Gutenberga – Richtera stosuje się przede wszystkim do
+                            prognozowania zagrożeń trzęsień ziemi na danym terenie. Niewątpliwą zaletą stosowania
+                            rozkładu G-R jest prostota metody, która wymaga tylko elementarnych i nielicznych obliczeń.
+                            Ze względu na małe wymagania dotyczące informacji wejściowej może być znacznie szerzej
+                            stosowana jako najprostsza, przybliżona metoda prognozy zagrożenia sejsmicznego.
+
+                            <br /><br />
+                            <a href="{% static 'pages/documents/Fizyka-Ziemi- skrypt.pdf' %}#page=6" target="_blank"> Więcej o samej metodzie i sposobie przeprowadzenia obliczeń</a>
+
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-12 mb60">
+                        <h4>Histogram wstrząsów</h4>
+
+                        {% if histNormal %}
+                            <div>
+                                {{ histNormal|safe }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+
+                    <div class="col-md-12 mb60">
+                        <h4>Histogram wstrząsów Log(N) [N - częstość]</h4>
+
+                        {% if histNormal %}
+                            <div>
+                                {{ histLogy|safe }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-md-12 mb60">
+                        <h4>Magnituda kompletności</h4>
+                        <p class="text-left mt20">
+
+                            Każda sieć sejmologiczna charakteryzuje się pewnym prgiem, poniżej którego stacje badawcze tej sieci nie są zdolne do rejestracji wszystkich wstrząsów sejsmicznych. Część danych o magnitudzie mniejszej niż magnituda kompletności (zwana też magnitudą minimalną) nie jest zarejestrowana przez użądzenia lub personel. Tym samym magnituda kompletności ogranicza, więc rozkład Gutenberga-Richtera od dołu, tworząc tzw. obcięty rozkład Gutenberga - Richtera.
+                            <br/><br/>
+
+                            Magnitudę minimalną można wyznaczyć z histogramu (powyżej), poprzez określenie magnitudy o największej liczbie zdarzeń.
+
+                        </p>
+
+                       <h3 class="mt20 text-left">Magnituda kompletności tego katalogu wynosi: <strong> {{ magMin }} </strong> </h3>
+                    </div>
+
+
+                    <div class="col-md-12 mb60">
+                        <h4>Magnituda maksymalna</h4>
+                        <p class="text-left mt20">
+
+                            Magnituda maksymalna to górna granica magnitud dla określonego rejonu sejsmicznego. Można przyjąć, że jest to największa możliwa magnituda trzęsienia ziemi lub wstrząsu, która może wystąpić na badanym terenie.
+
+                        </p>
+
+                        <h3 class="mt20 text-left">Magnituda maksymalna tego katalogu wynosi: <strong> {{ magMax }} </strong></h3>
+                    </div>
+
+                    <div class="col-md-12 mb60">
+                        <h4>Histogram wstrząsów Log(N) - od magnitudy kompletności</h4>
+
+                        {% if histCut %}
+                            <div>
+                                {{ histCut|safe }}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="col-md-12 mb60">
+                        <h4>Obcięty rozkład G-R parametry</h4>
+                        <p class="text-left mt20">
+
+
+                        </p>
+
+                        <div class="col-md-6 center-block">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Parametr</th>
+                                    <th>Wartość</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Magnituda średnia</td>
+                                    <td>{{ magAvg }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Odchylenie stand. magnitudy</td>
+                                    <td>{{ magStaDev }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Współczynnik Gutenberga b</td>
+                                    <td>{{ b }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Błąd b</td>
+                                    <td>{{ delb }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Funkcja liniowa: średnia współczynnika a</td>
+                                    <td>{{ a }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Funkcja liniowa: błąd współczynnika a</td>
+                                    <td>{{ dela }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-12 mb60">
+                        <h4>Obcięty rozkład G-R wykres </h4>
+
+                        {% if chartRegLine %}
+                            <div>
+                                {{ chartRegLine|safe }}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <div class="separator">
+            <div class="mask"></div>
+        </div>
+
+
+    </main>
+
+{% endblock %}
+
+{% block javascript %}
+
+
+{% endblock %}
+
+

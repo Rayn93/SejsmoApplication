@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head_title %}Mapa wszystkich wstrząsów{% endblock %}
+
+{% block head_description %}Strona sieci sejsmologicznej UŚ ma za zadanie dostarczenie informacji o wstrząsach
+    sejsmicznych zarejestrowanych przez USS UŚ na Grónym Śląsku{% endblock %}
+
+{% block bodyid %}all-quake-map{% endblock %}
+
+{% block image_top %}
+    <!--Top Imagine for static pages-->
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="static-top">
+                <img class="img-background" src="{% static 'pages/img/slajdy/kato.jpg' %}" alt="statystyki">
+
+                <h1>MAPA WSTRZĄSÓW</h1>
+
+            </div>
+        </div>
+    </div>
+    <!--END Object top info-->
+{% endblock %}
+
+
+{% block page_content %}
+
+    <main>
+
+        <section id="intro">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <h3 class="mainHeader mb60">MAPA WSZYSTKICH WSTRZĄSÓW Z KATALOGU LOKALNEGO</h3>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="container-fluid mb60">
+                <div class="row">
+                    <div id="map3"></div>
+                </div>
+            </div>
+
+        </section>
+
+
+    </main>
+
+{% endblock %}
+
+{% block javascript %}
+
+     <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_upCvmfIJ1lQjTrdbaCMT0228fAGq1wI&callback=initMap">
+    </script>
+
+ <script>
+
+
+     var locations = [
+
+         {% for quake in last_quakes %}
+             ['{{ quake.city }}', '{{ quake.eventDate|date:"d M Y H:i" }}', '{{ quake.magnitude }}', {{ quake.latitude }}, {{ quake.longitude }}, '{{ quake.get_absolute_url }}', {{ forloop.counter }}],
+         {% endfor %}
+
+     ];
+
+     function initMap() {
+
+         var localMap = new google.maps.Map(document.getElementById('map3'), {
+             zoom: 10,
+             center: silesiaCenter,
+             mapTypeId: google.maps.MapTypeId.ROADMAP,
+             styles: mapStyle
+
+         });
+
+
+         var infowindow = new google.maps.InfoWindow();
+
+         var marker, i;
+         var markers = [];
+
+         //Markers Local Loop
+         for (i = 0; i < locations.length; i++) {
+             marker = new google.maps.Marker({
+                 position: new google.maps.LatLng(locations[i][3], locations[i][4]),
+                 map: localMap,
+                 icon: markEvent
+             });
+
+             markers.push(marker);
+
+             google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                 return function () {
+                     infowindow.setContent(
+                         '<div class="markerDescription">' +
+                         '<strong>Miasto: </strong>' + locations[i][0] + '<br />' +
+                         '<strong>Czas: </strong>' + locations[i][1] + '<br />' +
+                         '<strong>Magnituda: </strong>' + locations[i][2] + '<br />' +
+                         '<a class="text-right" href="' + locations[i][5] + '">Więcej</a>' +
+                         '</div>'
+                     );
+
+
+                     infowindow.open(localMap, marker);
+                 }
+             })(marker, i));
+         }
+
+
+     }
+
+
+    </script>
+
+{% endblock %}
+
+
