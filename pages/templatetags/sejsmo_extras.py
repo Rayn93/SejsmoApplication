@@ -19,6 +19,27 @@ def quakeEnergy(value):
 
 
 
+@register.filter(name='correctLat')
+def correctLat(lattitude):
+
+    lattitude = float(lattitude)
+
+    if lattitude > 0:
+        return 'N'
+    else:
+        return 'S'
+
+@register.filter(name='correctLong')
+def correctLong(longitude):
+
+    longitude = float(longitude)
+
+    if longitude > 0:
+        return 'E'
+    else:
+        return 'W'
+
+
 @register.filter(name='absolutValue')
 def absolutValue(value):
 

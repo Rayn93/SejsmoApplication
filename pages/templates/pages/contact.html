@@ -2,6 +2,7 @@
 {% load static %}
 
 
+
 {% block head_title %}Kontakt{% endblock %}
 
 {% block head_description %}Strona sieci sejsmologicznej UŚ ma za zadanie dostarczenie informacji o wstrząsach sejsmicznych zarejestrowanych przez USS UŚ na Grónym Śląsku{% endblock %}
@@ -33,18 +34,12 @@
     <section id="intro">
         <div class="container">
             <div class="row">
+
                 <div class="col-md-12">
-                    <h3 class="mainHeader">Formularz kontaktowy</h3>
+                    <h3 class="mainHeader mb60">Skontaktuj się z nami</h3>
+
+                    <p>We wszystkich sprawach proszę pisać na: robert.saternus@gmail.com</p>
                 </div>
-
-
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <div class="form-actions">
-                        <button type="submit">Send</button>
-                    </div>
-                </form>
 
             </div>
         </div>

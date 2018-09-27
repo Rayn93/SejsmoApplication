@@ -55,8 +55,8 @@
                             <tr>
                                 <td>Lokalizacja</td>
                                 <td>
-                                    {{object.latitude|absolutValue}}{% if object.object.latitude > 0 %}N{% else %}S{% endif %}
-                                    {{object.longitude|absolutValue}}{% if object.object.longitude > 0 %}W{% else %}E{% endif %}
+                                    {{object.latitude|absolutValue}}{{ object.latitude|correctLat }}
+                                    {{object.longitude|absolutValue}}{{ object.longitude|correctLong }}
                                 </td>
                             </tr>
                             <tr>
@@ -100,7 +100,12 @@
 
             </div>
 
+
+
+
         <a class="button mb60" href="{% url "globalQuakes:list" %}">Katalog Trzęsień Ziemi</a>
+
+        <p class="text-left mb60">*Część danych pozyskanych zostało z serwisu <a href="https://www.emsc-csem.org" target="_blank">emsc-csem.org</a></p>
 
         </div>
     </section>
