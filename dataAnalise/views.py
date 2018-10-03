@@ -28,9 +28,15 @@ class StatisticView(TemplateView):
         allCities = [LocalQuake.city for LocalQuake in LocalQuake.objects.all()]
         allMonths = [LocalQuake.eventDate for LocalQuake in LocalQuake.objects.all()]
 
+        timeRange = subList(allMonths)
+        avgTimeRange = statistics.mean(timeRange)
+
+
         context['histogramMag'] = renderHistogram(allMagnitudes, 'Histogram magnitud dla wstrząsów lokalnych', 'Magnituda lokalna ML', 'Częstość N')
         context['histogramCity'] = renderHistogram(allCities, 'Ilość wstrząsów w poszczególnych miastach', 'Miasto', 'Liczba wstrząsów')
-        context['allMonths'] = renderHistogram(allMonths, 'Ilość wstrząsów w poszczególnych miastach', 'Miasto', 'Liczba wstrząsów')
+        context['allMonths'] = renderHistogram(allMonths, 'Ilość wstrząsów w poszczególnych miesiącach', 'Miesiąc', 'Liczba wstrząsów')
+        context['timeRange'] = renderHistogram(timeRange, 'Histogram rozkładu odstępów czasowych', 'Czas [godziny]', 'Liczba wstrząsów', 100)
+        context['avgTimeRange'] = float("{0:.2f}".format(avgTimeRange))
 
         return context
 
@@ -174,19 +180,40 @@ def renderBarChart(x, y, title, xtitle, ytitle):
     return div
 
 
-def renderHistogram(x, title, xtitle, ytitle):
+def renderHistogram(x, title, xtitle, ytitle, nbins = 0):
 
     data = [go.Histogram(
         x=x,
         marker=dict(
             color='#00a651'
         ),
+        nbinsx=nbins,
+
     )]
-    layout = go.Layout(title=title, xaxis={'title': xtitle}, yaxis={'title': ytitle}, autosize=True)
+    layout = go.Layout(title=title, xaxis={'title': xtitle}, yaxis={'title': ytitle}, autosize=True, bargap=0.1)
     figure = go.Figure(data=data, layout=layout)
     div = opy.plot(figure, auto_open=False, output_type='div')
 
     return div
+
+
+def subList(list):
+
+    listWithRanges = []
+    list = sorted(list)
+
+    for index in range(len(list)):
+
+        if index < len(list)-2:
+            delTime = abs(list[index] - list[index+1])
+            delDays = delTime.total_seconds()//3600
+
+            if delDays < 400:
+                listWithRanges.append(delDays)
+
+
+    return listWithRanges
+
 
 
 

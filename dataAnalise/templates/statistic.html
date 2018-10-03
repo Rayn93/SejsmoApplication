@@ -109,6 +109,21 @@
                                     </div>
                                 {% endif %}
 
+                                <br/><br/><br/>
+
+
+                                {% if timeRange %}
+                                    <div>
+                                        {{ timeRange|safe }}
+                                    </div>
+                                {% endif %}
+
+                            <br/><br/>
+
+                            <p>Średni czas pomiędzy wstrząsami: {{ avgTimeRange }}</p>
+
+
+
                             </div>
 
 
