@@ -55,7 +55,7 @@
                                 <a href="#city" aria-controls="city" role="tab" data-toggle="tab">Miasta</a>
                             </li>
                             <li role="presentation">
-                                <a href="#month" aria-controls="month" role="tab" data-toggle="tab">Miesiące</a>
+                                <a href="#month" aria-controls="month" role="tab" data-toggle="tab">Czas</a>
                             </li>
                             <li role="presentation">
                                 <a href="#gr-relation" aria-controls="month" role="tab" data-toggle="tab">Relacja
@@ -142,7 +142,11 @@
 
                             <div role="tabpanel" class="tab-pane" id="hazard">
 
-                                <p class="mt20">Wkrótce...</p>
+                                 <p class="mt20 mb20">
+                                    Hazard sejsmiczny to prawdopodobieństwo wystąpienia zjawiska fizycznego związanego z trzęsieniem Ziemi (takich jak drgania podłoża, fala tsunami, upłynnienie podłoża, lawiny itd.)
+                                    <br/><br/>
+                                    <a href="{% url "dataAnalise:seismic-hazard" %}">Przejdź do analizy stacjonarnego hazardu sejsmicznego</a>
+                                </p>
 
                             </div>
 

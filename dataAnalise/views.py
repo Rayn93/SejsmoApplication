@@ -12,6 +12,8 @@ import math
 from django.views.generic import TemplateView, ListView
 from localQuakes.models import LocalQuake
 
+from dataAnalise.forms import InputDataForAnalysis
+
 from django.db.models.functions import TruncMonth
 from django.db.models import Count
 
@@ -34,8 +36,8 @@ class StatisticView(TemplateView):
 
         context['histogramMag'] = renderHistogram(allMagnitudes, 'Histogram magnitud dla wstrząsów lokalnych', 'Magnituda lokalna ML', 'Częstość N')
         context['histogramCity'] = renderHistogram(allCities, 'Ilość wstrząsów w poszczególnych miastach', 'Miasto', 'Liczba wstrząsów')
-        context['allMonths'] = renderHistogram(allMonths, 'Ilość wstrząsów w poszczególnych miesiącach', 'Miesiąc', 'Liczba wstrząsów')
-        context['timeRange'] = renderHistogram(timeRange, 'Histogram rozkładu odstępów czasowych', 'Czas [godziny]', 'Liczba wstrząsów', 100)
+        context['allMonths'] = renderHistogram(allMonths, 'Ilość wstrząsów w poszczególnych miesiącach', 'Miesiąc', 'Liczba wstrząsów', 20)
+        context['timeRange'] = renderHistogram(timeRange, 'Histogram rozkładu odstępów czasowych', 'Czas [godziny]', 'Liczba wstrząsów', 80)
         context['avgTimeRange'] = float("{0:.2f}".format(avgTimeRange))
 
         return context
@@ -66,6 +68,7 @@ class GutenbergRichterView(TemplateView):
         xnorlam = [float(i) for i in counter.keys()]
         ynormal = [float(i) for i in counter.values()]
 
+        context['allMagnitudes'] = allMagnitudes
         context['histNormal'] = renderBarChart(xnorlam, ynormal, 'Histogram wstrząsów lokalnych', 'Magnituda lokalna ML', 'Częstość N')
 
         ##########################
@@ -161,6 +164,66 @@ class GutenbergRichterView(TemplateView):
         return context
 
 
+class HazardView(TemplateView):
+    template_name = 'hazard.html'
+
+
+    def get(self, request):
+        form = InputDataForAnalysis()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = InputDataForAnalysis(request.POST)
+
+
+        if form.is_valid():
+            deltaT = form.cleaned_data['deltaT']
+            mth = form.cleaned_data['mth']
+
+
+        gutRich = GutenbergRichterView().get_context_data()
+        btrue = gutRich['b']
+        magMin = gutRich['magMin']
+        beta = float("{0:.2f}".format(btrue/math.log10(math.e)))
+        mthList = [x * 0.02 for x in range(0, 251)] #[0.2, 0.4, 0.6, 0.8, 1.0, 1.2]
+        mylambda = len(gutRich['allMagnitudes'])/18
+
+        probabilityList = []
+        timeList = []
+        probabilityOfMth = float("{0:.2f}".format((1 - math.exp(-(mylambda)*deltaT*math.exp(-beta*(mth-magMin))))*100)) #poprawić lambdę
+        timeOfMth = float("{0:.2f}".format(1/((mylambda)*math.exp(-beta*(mth-magMin)))*30))
+
+        for m in mthList:
+            r = 1 - math.exp(-(mylambda)*deltaT*math.exp(-beta*(m-magMin))) #poprawić lambdę
+            t = 1/((mylambda)*math.exp(-beta*(m-magMin)))*30
+            probabilityList.append(r)
+            timeList.append(t)
+
+
+
+        divProbability =renderScatterChart(mthList, probabilityList, "Prawdopodobieństwo przewyższenia magnitudy dla zadanego przedziału czasu", "Magnituda", "Prawdopodobieństwo")
+        divTime = renderScatterChart(mthList, timeList, "Średni czas wystąpienia wstrząsu o danej magnitudzie", "Magnituda", "Czas (w dniach)")
+
+        args = {'form': form, 'deltaT': deltaT, 'mth': mth, 'b': btrue, 'beta': beta, 'magMin': magMin, 'mylambda': mylambda,  'timeOfMth': timeOfMth, 'probabilityOfMth': probabilityOfMth,  'probabilityPlot': divProbability, 'timePlot': divTime}
+        return render(request, self.template_name, args)
+
+
+
+def renderScatterChart(x, y, title, xtitle, ytitle):
+
+    data = [go.Scatter(
+        x=x,
+        y=y,
+        mode='markers',
+        marker=dict(
+            color='#00a651'
+        ),
+    )]
+    layout = go.Layout(title=title, xaxis={'title': xtitle}, yaxis={'title': ytitle})
+    figure = go.Figure(data=data, layout=layout)
+    div = opy.plot(figure, auto_open=False, output_type='div')
+
+    return div
 
 
 
@@ -214,32 +277,3 @@ def subList(list):
 
     return listWithRanges
 
-
-
-
-# class ChartData(APIView):
-#     authentication_classes = []
-#     permission_classes = []
-#
-#     def get(self, request, format=None):
-#
-#         dates = [LocalQuake.magnitude for LocalQuake in LocalQuake.objects.all()]
-#
-#         # dates = [log10(element) for element in dates]
-#
-#         return Response(dates)
-#
-#     # def get(self, request, format=None):
-#     #     magnitude = dict()
-#     #     for quake in LocalQuake.objects.all():
-#     #         magnitude[quake.eventDate] = quake.magnitude
-#     #
-#     #             # mag = sorted(mag.items(), key=lambda x: x[1])
-#     #         magnitude = dict(magnitude)
-#     #
-#     #     data = {
-#     #         "mag_date": magnitude.keys(),
-#     #         "mag_val": magnitude.values(),
-#     #     }
-#     #
-#     #     return Response(data)

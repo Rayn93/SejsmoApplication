@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head_title %}Hazard sejsmiczny{% endblock %}
+
+{% block head_description %}Wyznaczanie parametrów stacjonarnego hazardu sejsmicznego dla wstrząsów zarejestrowanych przez USS UŚ{% endblock %}
+
+{% block bodyid %}about{% endblock %}
+
+{% block image_top %}
+    <!--Top Imagine for static pages-->
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="static-top">
+                <img class="img-background" src="{% static 'pages/img/slajdy/slide0.jpg' %}" alt="statystyki">
+
+                <h1>Wyznaczanie parametrów <br /> stacjonarnego hazardu sejsmicznego</h1>
+
+            </div>
+        </div>
+    </div>
+    <!--END Object top info-->
+{% endblock %}
+
+
+
+
+{% block page_content %}
+
+    <main>
+
+        <section id="intro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <h3 class="mainHeader">Wyznaczanie parametrów stacjonarnego hazardu sejsmicznego dla wstrząsów zarejestrowanych przez USS UŚ</h3>
+
+                        <p class="mt20 text-left">Tutaj zobaczysz jak przedstawiają się parametry stacjonarnego hazardu sejsmicznego taki jak prawdopodobieństwo przewyższenia magnitudy orazd średni czas powrotu. Całość obliczeń bazuje na zdarzenich zarejestrowanych przez Uczelnianą Sieć Sejsmologiczną Uniwersytetu Śląskiego.
+                            Skrypt został tak zaprogramowany, że automatycznie oblicza parametry stacjonarnego hazardu sejsmicznego dla
+                            wszystkich wstrząsów znajdujących się w <a href="{% url "localQuakes:list" %}"> katalogu
+                                lokalnym </a></p>
+
+                        <p class="mt20 mb60 text-left">Hazard sejsmiczny to prawdopodobieństwo wystąpienia zjawiska fizycznego związanego z trzęsieniem Ziemi (takich jak drgania podłoża, fala tsunami, upłynnienie podłoża, lawiny itd.), który może wywołać skutki przeciwne ludzkiej działalności. Oszacowanie tych parametrów pozwala Nam w bardzo przejrzysty sposób, zobaczyć z jakim charakterem sejsmicznym terenu mamy do czynienia.
+
+                            <br /><br />
+                            <a href="{% static 'pages/documents/Fizyka-Ziemi- skrypt.pdf' %}#page=13" target="_blank"> Więcej o samej metodzie i sposobie przeprowadzenia obliczeń</a>
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="col-md-12 mb60">
+                        <h4>Dla jakich danych chcesz zrobić analizę</h4>
+
+                        <form class="mt20" action="" method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <input type="submit" value="Analizuj">
+                        </form>
+                    </div>
+
+
+                    {% if not form.errors and request.method == 'POST' %}
+
+                        <div class="col-md-12 mb60">
+                        <h4>Analiza dla danych</h4>
+
+                        <div class="col-md-6 mt20">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>Wybrany przedział czasowy</td> <td>{{ deltaT }} (w miesiącach)</td>
+                                </tr>
+                                <tr>
+                                    <td>Analiza dla magnituda</td> <td>{{ mth }}</td>
+                                </tr>
+                                <tr>
+                                    <td>b (rozkład G-R)</td> <td>{{ b }}</td>
+                                </tr>
+{#                                <tr>#}
+{#                                    <td>beta</td> <td>{{ beta }}</td>#}
+{#                                </tr>#}
+                                <tr>
+                                    <td>Magnituda kompletności (rozkład G-R) </td> <td>{{ magMin }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Prawdopodobieństwo wystąpienia magnitudy <strong>{{ mth }}</strong> bądź wyższej</td> <td>{{ probabilityOfMth }} %</td>
+                                </tr>
+                                 <tr>
+                                    <td>Średni czas powrotu magnitudy <strong>{{ mth }}</strong> bądź wyższej</td> <td>{{ timeOfMth }} (dni)</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-12 mb60">
+                        <h4>Prawdopodobieństwo wystąpienia wstrząsu o danej magnitudzie bądź wyższej</h4>
+
+                        {% if probabilityPlot %}
+                            <div>
+                                {{ probabilityPlot|safe }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-md-12 mb60">
+                        <h4>Średni czas powrotu wystąpienia wstrząsu o danej magnitudzie bądź wyższej</h4>
+
+                        {% if timePlot %}
+                            <div>
+                                {{ timePlot|safe }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    {% endif %}
+
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <div class="separator">
+            <div class="mask"></div>
+        </div>
+
+
+    </main>
+
+{% endblock %}
+
+{% block javascript %}
+
+
+{% endblock %}
+
+
